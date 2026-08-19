@@ -7,6 +7,18 @@
   <meta name="description" content="Information about data deletion and access removal for The Spiral Squad's advertising management application.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://thespiralsquad.com/data-deletion/">
+  <link rel="icon" type="image/png" href="/assets/logo.png">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thespiralsquad.com/data-deletion/">
+  <meta property="og:title" content="Data Deletion — The Spiral Squad">
+  <meta property="og:description" content="Information about data deletion and access removal for The Spiral Squad's advertising management application.">
+  <meta property="og:image" content="https://thespiralsquad.com/assets/logo.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Data Deletion — The Spiral Squad">
+  <meta name="twitter:description" content="Information about data deletion and access removal for The Spiral Squad's advertising management application.">
+  <meta name="twitter:image" content="https://thespiralsquad.com/assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../styles.css">
@@ -18,12 +30,19 @@
     <a href="/" aria-label="The Spiral Squad home">
       <img class="nav-logo" src="../assets/logo.png" alt="The Spiral Squad">
     </a>
-    <ul class="nav-links">
+    <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true" focusable="false">
+        <rect width="22" height="2" fill="currentColor"/>
+        <rect y="7" width="22" height="2" fill="currentColor"/>
+        <rect y="14" width="22" height="2" fill="currentColor"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="/#services">Services</a></li>
       <li><a href="/#how">How we work</a></li>
       <li><a href="/privacy-policy/">Privacy Policy</a></li>
       <li><a href="/terms-of-service/">Terms</a></li>
-      <li><a href="/data-deletion/">Data Deletion</a></li>
+      <li><a href="/data-deletion/" aria-current="page">Data Deletion</a></li>
     </ul>
   </div>
 </nav>
@@ -82,5 +101,16 @@
   </div>
 </footer>
 
+<script>
+  (function() {
+    var btn = document.querySelector('.nav-hamburger');
+    var links = document.getElementById('nav-links');
+    btn.addEventListener('click', function() {
+      var open = links.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open);
+      btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+  })();
+</script>
 </body>
 </html>
