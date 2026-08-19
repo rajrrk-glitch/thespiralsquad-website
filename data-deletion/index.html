@@ -105,10 +105,28 @@
   (function() {
     var btn = document.querySelector('.nav-hamburger');
     var links = document.getElementById('nav-links');
+
+    function closeMenu() {
+      links.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open navigation menu');
+    }
+
     btn.addEventListener('click', function() {
       var open = links.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', open);
+      btn.setAttribute('aria-expanded', String(open));
       btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && links.classList.contains('is-open')) {
+        closeMenu();
+        btn.focus();
+      }
     });
   })();
 </script>
