@@ -232,26 +232,7 @@ footer {
   color: var(--brand);
   font-weight: 700;
 }
-.prose .contact-placeholder {
-  display: inline-block;
-  background: #FFF3CD;
-  border: 1px dashed #D4A017;
-  color: #7A5000;
-  border-radius: 4px;
-  padding: 0 6px;
-  font-family: monospace;
-  font-size: 0.9em;
-}
-.notice {
-  background: #FFF8E1;
-  border: 1px solid #FFD54F;
-  border-radius: 8px;
-  padding: 16px 20px;
-  margin-bottom: 32px;
-  font-size: 0.88rem;
-  color: #6D4C00;
-  line-height: 1.55;
-}
+.prose a { color: var(--brand); text-decoration: underline; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 640px) {
