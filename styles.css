@@ -40,9 +40,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
+  height: 72px;
 }
-.nav-logo { height: 34px; width: auto; display: block; }
+.nav-logo { height: 44px; width: auto; display: block; }
 .nav-links { list-style: none; display: flex; gap: 32px; }
 .nav-links a {
   text-decoration: none;
@@ -294,6 +294,8 @@ footer {
 @media (max-width: 640px) {
   .container { padding: 0 20px; }
   .prose-wrap { padding: 0 20px; }
+  .nav-inner { height: 64px; }
+  .nav-logo { height: 38px; }
   .nav-links { display: none; }
   .hero { padding: 64px 0 56px; }
   .section { padding: 56px 0; }
