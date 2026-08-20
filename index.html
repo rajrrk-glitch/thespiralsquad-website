@@ -27,6 +27,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <!-- Set 'js' class synchronously before paint so reveal CSS starts hidden
+       only when JS is confirmed available — content never stuck invisible. -->
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -53,37 +56,64 @@
 </nav>
 
 <section class="hero">
-  <div class="container">
-    <span class="hero-eyebrow">Meta Advertising</span>
-    <h1>Performance advertising<br><span>done right.</span></h1>
-    <p class="hero-sub">The Spiral Squad helps brands run smarter Meta campaigns — from strategy and execution to deep-dive reporting and authorised automation.</p>
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-flag" aria-hidden="true"></div>
+      <span class="eyebrow">Meta Advertising · Campaign Operations</span>
+      <h1>We run Meta ads like it's <span class="lit">our own money</span> on the line.</h1>
+      <p class="hero-sub">The Spiral Squad helps brands run smarter Meta campaigns — from strategy and execution to deep-dive reporting and authorised automation.</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn">See how we work</a>
+        <a href="mailto:raj@thespiralsquad.com" class="btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <svg class="glyph-watermark" viewBox="0 0 271 648" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M0 0 L271 100 L271 240 L0 140 Z" fill="#FCB121"/>
+        <path d="M0 170 L271 270 L271 410 L0 310 Z" fill="#FCB121"/>
+        <path d="M0 340 L271 440 L271 648 L0 548 Z" fill="#FCB121"/>
+      </svg>
+      <p class="docket-head">Live scope · this engagement</p>
+      <ul class="docket">
+        <li><span class="code mono">TSS&#8209;01</span><span class="name">Campaign Management</span></li>
+        <li><span class="code mono">TSS&#8209;02</span><span class="name">Performance Reporting</span></li>
+        <li><span class="code mono">TSS&#8209;03</span><span class="name">Continuous Optimisation</span></li>
+        <li><span class="code mono">TSS&#8209;04</span><span class="name">Access On Your Terms</span></li>
+      </ul>
+    </div>
   </div>
 </section>
 
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
 <section class="section" id="services">
   <div class="container">
-    <p class="section-label">What we do</p>
-    <h2 class="section-title">End-to-end campaign management</h2>
-    <p class="section-body">We take care of the full advertising lifecycle so you can focus on your business.</p>
+    <div class="section-head">
+      <span class="section-label">What we do</span>
+      <h2 class="section-title">End-to-end campaign management</h2>
+      <p class="section-body">We take care of the full advertising lifecycle so you can focus on your business.</p>
+    </div>
 
     <div class="card-grid">
-      <div class="card">
-        <div class="card-bar"></div>
+      <div class="card reveal">
+        <span class="tag mono">01</span>
         <h3>Campaign Management</h3>
         <p>We build, manage, and optimise campaigns, ad sets, and ads across your Meta advertising accounts.</p>
       </div>
-      <div class="card">
-        <div class="card-bar"></div>
+      <div class="card reveal">
+        <span class="tag mono">02</span>
         <h3>Performance Reporting</h3>
         <p>Detailed insights and analysis on reach, engagement, conversions, and spend — delivered on a cadence that suits you.</p>
       </div>
-      <div class="card">
-        <div class="card-bar"></div>
+      <div class="card reveal">
+        <span class="tag mono">03</span>
         <h3>Continuous Optimisation</h3>
         <p>Authorised Meta Marketing API access lets us handle routine adjustments — pacing, structural upkeep — so campaigns keep moving between reviews.</p>
       </div>
-      <div class="card">
-        <div class="card-bar"></div>
+      <div class="card reveal">
+        <span class="tag mono">04</span>
         <h3>Access On Your Terms</h3>
         <p>You grant access and set its scope — we remove it when the engagement ends. Credentials stay strictly confidential, never publicly exposed.</p>
       </div>
@@ -91,19 +121,28 @@
   </div>
 </section>
 
-<section class="section-yellow" id="how">
+<section class="how" id="how">
   <div class="container">
-    <p class="section-label">How we work</p>
-    <h2 class="section-title">Transparent, authorised access</h2>
-    <p class="section-body">The Spiral Squad uses the Meta Marketing API under authorised access granted by you. We retrieve your advertising account data, campaign structure, and performance insights — and we use that data solely to manage and improve your advertising. Nothing more.</p>
+    <div class="how-grid">
+      <div>
+        <span class="section-label mono">How we work</span>
+        <p class="pull-quote">"We retrieve your advertising account data, campaign structure, and performance insights — and we use that data solely to manage and improve your advertising. Nothing more."</p>
+      </div>
+      <div>
+        <p class="how-body">The Spiral Squad uses the Meta Marketing API under authorised access granted by you. Transparent, authorised, and scoped to exactly what the engagement requires — no more.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="cta-section">
+<section class="cta">
+  <div class="cta-flag" aria-hidden="true"></div>
   <div class="container">
-    <h2>Ready to grow?</h2>
-    <p>Get in touch to learn how The Spiral Squad can improve your Meta advertising performance.</p>
-    <a href="mailto:raj@thespiralsquad.com" class="cta-btn">Get in touch</a>
+    <div class="cta-inner">
+      <h2>Ready to grow?</h2>
+      <p>Get in touch to learn how The Spiral Squad can improve your Meta advertising performance.</p>
+      <a href="mailto:raj@thespiralsquad.com" class="btn">Get in touch</a>
+    </div>
   </div>
 </section>
 
@@ -117,38 +156,81 @@
       <li><a href="/terms-of-service/">Terms of Service</a></li>
       <li><a href="/data-deletion/">Data Deletion</a></li>
     </ul>
-    <p class="footer-copy">&copy; 2026 The Spiral Squad. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2026 THE SPIRAL SQUAD</p>
   </div>
 </footer>
 
 <script>
   (function() {
-    var btn = document.querySelector('.nav-hamburger');
+    // ── Hamburger nav ──────────────────────────────────────────
+    var btn   = document.querySelector('.nav-hamburger');
     var links = document.getElementById('nav-links');
-
     function closeMenu() {
       links.classList.remove('is-open');
       btn.setAttribute('aria-expanded', 'false');
       btn.setAttribute('aria-label', 'Open navigation menu');
     }
-
     btn.addEventListener('click', function() {
       var open = links.classList.toggle('is-open');
       btn.setAttribute('aria-expanded', String(open));
       btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     });
-
     links.querySelectorAll('a').forEach(function(a) {
       a.addEventListener('click', closeMenu);
     });
-
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && links.classList.contains('is-open')) {
-        closeMenu();
-        btn.focus();
+        closeMenu(); btn.focus();
       }
     });
   })();
+
+  (function() {
+    // ── Ticker: two passes → seamless -50% translateX loop ────
+    var items = [
+      'Authorised Meta Marketing API Access',
+      'Campaign Management',
+      'Performance Reporting',
+      'Continuous Optimisation',
+      'Access On Your Terms'
+    ];
+    var flag  = '<svg viewBox="0 0 10 10" aria-hidden="true"><polygon points="0,0 10,5 0,10" fill="#FCB121"/></svg>';
+    var track = document.getElementById('tickerTrack');
+    if (!track) return;
+    var html = '';
+    for (var pass = 0; pass < 2; pass++) {
+      items.forEach(function(t) {
+        html += '<span class="ticker-item">' + flag + t + '</span>';
+      });
+    }
+    track.innerHTML = html;
+  })();
+
+  (function() {
+    // ── Scroll reveal ──────────────────────────────────────────
+    // Cards are visible (opacity:1) by default; the 'js' class added in <head>
+    // is what starts them hidden. Safety-net timeout force-reveals anything the
+    // IntersectionObserver hasn't caught yet (headless, extension interference).
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items   = document.querySelectorAll('.reveal');
+    if (reduced || !('IntersectionObserver' in window)) {
+      items.forEach(function(el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    items.forEach(function(el) { io.observe(el); });
+    setTimeout(function() {
+      items.forEach(function(el) { el.classList.add('in'); });
+    }, 1200);
+  })();
 </script>
+
 </body>
 </html>
