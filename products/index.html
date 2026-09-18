@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Products — The Spiral Squad</title>
+  <meta name="description" content="System templates and AI workflows from The Spiral Squad. Built for marketing agencies and performance marketers who want less manual work.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thespiralsquad.com/products/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thespiralsquad.com/products/">
+  <meta property="og:title" content="Digital Products — The Spiral Squad">
+  <meta property="og:description" content="System templates and AI workflows from The Spiral Squad.">
+  <meta property="og:image" content="https://thespiralsquad.com/assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Digital Products — The Spiral Squad">
+  <meta name="twitter:description" content="System templates and AI workflows from The Spiral Squad.">
+  <meta name="twitter:image" content="https://thespiralsquad.com/assets/social-card.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner container">
+    <a href="/" aria-label="The Spiral Squad home">
+      <img class="nav-logo" src="../assets/logo.png" alt="The Spiral Squad">
+    </a>
+    <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true" focusable="false">
+        <rect width="22" height="2" fill="currentColor"/>
+        <rect y="7" width="22" height="2" fill="currentColor"/>
+        <rect y="14" width="22" height="2" fill="currentColor"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#how">How we work</a></li>
+      <li><a href="/products/" aria-current="page">Products</a></li>
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <li><a href="/terms-of-service/">Terms</a></li>
+      <li><a href="/data-deletion/">Data Deletion</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="products-hero">
+  <div class="container">
+    <h1>Systems that work while <span class="lit">you sleep.</span></h1>
+    <p class="hero-sub" style="margin-top:18px;">Downloadable templates, agent configs, and workflow systems built from what we actually use at TSS. No fluff — just the working parts.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Digital Products</span>
+      <h2 class="section-title">Ready-to-deploy systems</h2>
+      <p class="section-body">Each product ships with everything you need to replicate the setup — code, config, and a setup checklist.</p>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card reveal">
+        <span class="tag mono">TSS&#8209;P01</span>
+        <h3>AI Meta Ads Agent System</h3>
+        <p class="desc">A done-for-you AI agent that runs daily Meta Ads performance checks automatically — no manual review, no MCP tools, no session timeouts. 4 clients checked in parallel in under 10 seconds.</p>
+        <div class="product-card-footer">
+          <span class="product-price">₹X,XXX</span>
+          <a href="/products/meta-agent-workflow/" class="btn-sm">Get it</a>
+        </div>
+      </div>
+
+    </div>
+    <!-- more products go here -->
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-flag" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Need something custom?</h2>
+      <p>If you want a system built for your specific stack, get in touch. We take on a small number of custom engagements.</p>
+      <a href="mailto:raj@thespiralsquad.com" class="btn">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner container">
+    <a href="/" aria-label="The Spiral Squad home">
+      <img class="footer-logo" src="../assets/logo.png" alt="The Spiral Squad">
+    </a>
+    <ul class="footer-links">
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <li><a href="/terms-of-service/">Terms of Service</a></li>
+      <li><a href="/data-deletion/">Data Deletion</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 THE SPIRAL SQUAD</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var btn   = document.querySelector('.nav-hamburger');
+    var links = document.getElementById('nav-links');
+    function closeMenu() {
+      links.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open navigation menu');
+    }
+    btn.addEventListener('click', function() {
+      var open = links.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && links.classList.contains('is-open')) {
+        closeMenu(); btn.focus();
+      }
+    });
+  })();
+
+  (function() {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items   = document.querySelectorAll('.reveal');
+    if (reduced || !('IntersectionObserver' in window)) {
+      items.forEach(function(el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    items.forEach(function(el) { io.observe(el); });
+    setTimeout(function() { items.forEach(function(el) { el.classList.add('in'); }); }, 1200);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Meta Ads Agent System — The Spiral Squad</title>
+  <meta name="description" content="A done-for-you AI agent setup that runs daily Meta Ads performance checks automatically. No manual review. No MCP tools. No session timeouts.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thespiralsquad.com/products/meta-agent-workflow/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thespiralsquad.com/products/meta-agent-workflow/">
+  <meta property="og:title" content="AI Meta Ads Agent System — The Spiral Squad">
+  <meta property="og:description" content="A done-for-you AI agent setup that runs daily Meta Ads performance checks automatically. No manual review. No MCP tools. No session timeouts.">
+  <meta property="og:image" content="https://thespiralsquad.com/assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Meta Ads Agent System — The Spiral Squad">
+  <meta name="twitter:description" content="A done-for-you AI agent setup that runs daily Meta Ads performance checks automatically.">
+  <meta name="twitter:image" content="https://thespiralsquad.com/assets/social-card.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner container">
+    <a href="/" aria-label="The Spiral Squad home">
+      <img class="nav-logo" src="../../assets/logo.png" alt="The Spiral Squad">
+    </a>
+    <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true" focusable="false">
+        <rect width="22" height="2" fill="currentColor"/>
+        <rect y="7" width="22" height="2" fill="currentColor"/>
+        <rect y="14" width="22" height="2" fill="currentColor"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services">Services</a></li>
+      <li><a href="/#how">How we work</a></li>
+      <li><a href="/products/" aria-current="page">Products</a></li>
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <li><a href="/terms-of-service/">Terms</a></li>
+      <li><a href="/data-deletion/">Data Deletion</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="product-detail-hero">
+  <div class="hero-flag" aria-hidden="true"></div>
+  <div class="container">
+    <div class="product-detail-inner">
+      <span class="eyebrow">TSS&#8209;P01 &nbsp;·&nbsp; AI Workflow</span>
+      <h1>AI Meta Ads Agent System</h1>
+      <p class="hero-sub">A done-for-you agent setup that runs daily Meta Ads performance checks automatically. You wake up to a report. No manual review, no MCP tools, no session timeouts.</p>
+      <div class="product-meta-row">
+        <span class="product-meta-price">₹X,XXX</span>
+        <a href="#" class="btn">Buy on Gumroad</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="product-body">
+  <div class="container">
+    <div class="product-layout">
+
+      <div>
+        <span class="section-label">What it does</span>
+        <h2 class="section-title" style="margin-bottom:40px;">Six reasons this workflow is different</h2>
+
+        <ul class="feature-list">
+          <li>
+            <span class="feature-num mono">01</span>
+            <div class="feature-text">
+              <h4>Runs on a schedule. You wake up to a report.</h4>
+              <p>A hive scheduler dispatches the agent at 9 AM daily. By the time you open your laptop, the check has run, the Google Sheet is updated, and a performance report is sitting in the agent's output folder.</p>
+            </div>
+          </li>
+          <li>
+            <span class="feature-num mono">02</span>
+            <div class="feature-text">
+              <h4>Tokens stored in macOS Keychain — nothing on disk.</h4>
+              <p>Meta access tokens are stored as Keychain entries (<span class="mono" style="font-size:.88em;">meta-&lt;tag&gt;</span>) using the <span class="mono" style="font-size:.88em;">security</span> CLI. The agent reads them at runtime. They never touch a <span class="mono" style="font-size:.88em;">.env</span> file, a config file, or git.</p>
+            </div>
+          </li>
+          <li>
+            <span class="feature-num mono">03</span>
+            <div class="feature-text">
+              <h4>Writes back to your Google Sheet automatically.</h4>
+              <p>A GCP service account handles Sheets read/write. Every daily run updates Column Y with a one-line status — the sheet is both the brief and the live log. Human-readable and agent-readable.</p>
+            </div>
+          </li>
+          <li>
+            <span class="feature-num mono">04</span>
+            <div class="feature-text">
+              <h4>4 clients checked in parallel. Full check in under 10 seconds.</h4>
+              <p>The system uses <span class="mono" style="font-size:.88em;">Promise.all()</span> to fetch all active campaigns simultaneously against Meta's Graph API. Checking 4 accounts takes ~2 seconds, not 8. No sequential bottleneck.</p>
+            </div>
+          </li>
+          <li>
+            <span class="feature-num mono">05</span>
+            <div class="feature-text">
+              <h4>Zero MCP dependency at runtime. Can't be broken by an upstream timeout.</h4>
+              <p>The daily check loop runs entirely on <span class="mono" style="font-size:.88em;">fetch()</span> and <span class="mono" style="font-size:.88em;">security</span> — both always available on macOS. No MCP server means no session binding, no tool disappearance mid-run, no upstream failures breaking your audit.</p>
+            </div>
+          </li>
+          <li>
+            <span class="feature-num mono">06</span>
+            <div class="feature-text">
+              <h4>Role separation: one agent reads, one agent executes.</h4>
+              <p>The Meta Lead agent holds read-only credentials (<span class="mono" style="font-size:.88em;">ads_read</span>, <span class="mono" style="font-size:.88em;">read_insights</span>). It reviews and QA-checks, but never touches a campaign. A separate Meta Executive agent handles writes — and only after a brief from the Lead. No accidental campaign changes.</p>
+            </div>
+          </li>
+        </ul>
+
+        <span class="section-label" style="margin-top:16px; display:block;">Who it's for</span>
+        <h2 class="section-title" style="margin-bottom:32px;">Built for people who audit Meta at scale</h2>
+        <p style="font-family:'Fraunces',serif; font-size:1rem; color:var(--ink-soft); max-width:56ch; line-height:1.75; margin-bottom:0;">
+          If you're manually checking Meta every morning — opening Ads Manager, scanning spend, cross-referencing your sheet — this replaces that with a scheduled agent that does it for you and reports exceptions. It's designed for agencies managing multiple ad accounts, performance marketers who want an always-on audit layer, and AI builders who want a reference implementation of a production hive agent.
+        </p>
+      </div>
+
+      <div>
+        <div class="included-box">
+          <span class="box-label">What's included</span>
+          <h3>AI Meta Ads Agent System</h3>
+          <div class="box-price">₹X,XXX</div>
+          <ul class="included-items">
+            <li><span><span class="mono" style="font-size:.86em;">keychain.mjs</span> — credential resolver</span></li>
+            <li><span><span class="mono" style="font-size:.86em;">sheets.mjs</span> — Google Sheets read/write module</span></li>
+            <li><span>Hive agent config (meta-lead role)</span></li>
+            <li><span>Scheduler setup instructions</span></li>
+            <li><span>Setup checklist (6 steps to first run)</span></li>
+          </ul>
+          <a href="#" class="btn" style="width:100%; justify-content:center;">Buy on Gumroad</a>
+          <p class="box-note">Digital download via Gumroad. Files are plain <span class="mono">.mjs</span> — no obfuscation, no lock-in. Requires macOS (Keychain dependency), Node.js 18+, and a Meta system user with <span class="mono">ads_read</span> scope.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="who-section">
+  <div class="container">
+    <div class="who-grid">
+      <div>
+        <span class="section-label">Audience</span>
+        <p class="pull-quote">"If you audit Meta manually every morning, this agent does that instead — and flags anything that needs your attention."</p>
+      </div>
+      <div>
+        <ul class="audience-list">
+          <li>Marketing agencies managing 2+ Meta ad accounts</li>
+          <li>Performance marketers who want an always-on check</li>
+          <li>AI builders looking for a production hive agent reference</li>
+          <li>Anyone tired of session timeouts killing their automation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-flag" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Ready to stop doing manual audits?</h2>
+      <p>Get the full system — code, config, and setup checklist — and have your first automated check running today.</p>
+      <a href="#" class="btn">Buy on Gumroad</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner container">
+    <a href="/" aria-label="The Spiral Squad home">
+      <img class="footer-logo" src="../../assets/logo.png" alt="The Spiral Squad">
+    </a>
+    <ul class="footer-links">
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <li><a href="/terms-of-service/">Terms of Service</a></li>
+      <li><a href="/data-deletion/">Data Deletion</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 THE SPIRAL SQUAD</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var btn   = document.querySelector('.nav-hamburger');
+    var links = document.getElementById('nav-links');
+    function closeMenu() {
+      links.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open navigation menu');
+    }
+    btn.addEventListener('click', function() {
+      var open = links.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && links.classList.contains('is-open')) {
+        closeMenu(); btn.focus();
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
