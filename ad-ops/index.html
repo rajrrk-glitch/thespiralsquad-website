@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Agentic Ad-Ops Playbook: a safe AI analyst for Meta Ads</title>
+  <meta name="description" content="Set up a read-only AI analyst that checks every Meta Ads account by 9 AM and flags problems, with a human approval gate for every change. Playbook + starter code.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thespiralsquad.com/ad-ops/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thespiralsquad.com/ad-ops/">
+  <meta property="og:title" content="The Agentic Ad-Ops Playbook: a safe AI analyst for Meta Ads">
+  <meta property="og:description" content="Set up a read-only AI analyst that checks every Meta Ads account by 9 AM and flags problems, with a human approval gate for every change.">
+  <meta property="og:image" content="https://thespiralsquad.com/assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Agentic Ad-Ops Playbook: a safe AI analyst for Meta Ads">
+  <meta name="twitter:description" content="Set up a read-only AI analyst that checks every Meta Ads account by 9 AM and flags problems, with a human approval gate for every change.">
+  <meta name="twitter:image" content="https://thespiralsquad.com/assets/social-card.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner container">
+    <a href="../" aria-label="The Spiral Squad home">
+      <img class="nav-logo" src="../assets/logo.png" alt="The Spiral Squad">
+    </a>
+    <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true" focusable="false">
+        <rect width="22" height="2" fill="currentColor"/>
+        <rect y="7" width="22" height="2" fill="currentColor"/>
+        <rect y="14" width="22" height="2" fill="currentColor"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../#products">Products</a></li>
+      <li><a href="../#custom-setup">Custom Setup</a></li>
+      <li><a href="../ad-ops/" aria-current="page">Playbook</a></li>
+      <li><a href="../privacy-policy/">Privacy Policy</a></li>
+      <li><a href="../terms-of-service/">Terms</a></li>
+      <li><a href="../data-deletion/">Data Deletion</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="sales-hero">
+  <div class="container">
+    <span class="eyebrow">For agencies running Meta Ads</span>
+    <h1>Every ad account checked by 9 AM. Nothing changes without your approval.</h1>
+    <p class="hero-sub">The Agentic Ad-Ops Playbook shows you how to set up an AI analyst that compares every campaign against your media plan each morning, flags what's broken, and prepares decisions for a human. It can see everything. It can't change anything.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn" id="cta-hero-inr" onclick="fireCheckout('INR')">Get the Playbook (₹1,499)</a>
+      <a href="../blueprint/" class="btn-ghost">Start with the free Blueprint</a>
+    </div>
+    <p class="hero-micro">Works on macOS, Windows and Linux &nbsp;·&nbsp; One-time purchase</p>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">The problem</span>
+      <h2 class="section-title">The morning check doesn't scale</h2>
+    </div>
+    <p class="section-body" style="max-width:70ch; font-size:1.05rem; line-height:1.8;">At five accounts, checking Meta Ads every morning is tedious. At twenty, it's where things slip: a campaign stops delivering, a paused campaign is still "Live" in the plan, a test ad set quietly spends for a week. AI agents could do the check in seconds, but no agency owner wants an agent that can edit budgets on a hunch.</p>
+  </div>
+</section>
+
+<!-- THE IDEA -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">The idea</span>
+      <h2 class="section-title">Separate seeing from doing</h2>
+    </div>
+    <div class="card-grid card-grid--3">
+      <div class="card reveal">
+        <span class="tag mono">Analyst</span>
+        <h3>Sees everything, changes nothing</h3>
+        <p>Read-only permissions checked at the token level, not just in the prompt. The Analyst cannot write even if asked to.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag mono">Orchestrator</span>
+        <h3>The approval gate</h3>
+        <p>Every change is a written brief that a named person approves. Nothing moves without a decision on record.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag mono">Executor</span>
+        <h3>Acts only on approved briefs</h3>
+        <p>Logs before/after values. Never deletes. Optional — the Analyst and Orchestrator alone deliver the daily check.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EIGHT CHECKS -->
+<section class="section" style="background:var(--white); padding:80px 0;">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">What gets checked</span>
+      <h2 class="section-title">Eight checks, every morning</h2>
+    </div>
+    <div class="checks-grid">
+      <div class="check-cell">
+        <p class="check-name">No delivery</p>
+        <p class="check-desc">Active but ₹0 spend</p>
+      </div>
+      <div class="check-cell">
+        <p class="check-name">No results</p>
+        <p class="check-desc">Spend with zero results</p>
+      </div>
+      <div class="check-cell">
+        <p class="check-name">Overspend</p>
+        <p class="check-desc">More than 120% of daily budget</p>
+      </div>
+      <div class="check-cell">
+        <p class="check-name">Status mismatch</p>
+        <p class="check-desc">Plan and Meta disagree</p>
+      </div>
+      <div class="check-cell">
+        <p class="check-name">Untracked</p>
+        <p class="check-desc">Live in Meta, missing from the plan</p>
+      </div>
+      <div class="check-cell">
+        <p class="check-name">Past end date</p>
+        <p class="check-desc">Still running after the flight ends</p>
+      </div>
+      <div class="check-cell">
+        <p class="check-name">Delivery issues</p>
+        <p class="check-desc">Meta reports a problem</p>
+      </div>
+      <div class="check-cell">
+        <p class="check-name">Setup check due</p>
+        <p class="check-desc">Weekly review overdue</p>
+      </div>
+    </div>
+    <p class="section-body">Each campaign also gets a <span class="verdict verdict--good">GOOD</span> / <span class="verdict verdict--watch">WATCH</span> / <span class="verdict verdict--action">ACTION</span> verdict against its target cost per result.</p>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">What's inside</span>
+      <h2 class="section-title">Everything you need to run it this week</h2>
+    </div>
+    <div class="content-cols">
+      <div>
+        <h3>The Playbook (PDF, 16 pages)</h3>
+        <ul class="content-items">
+          <li>Architecture and design principles</li>
+          <li>Step-by-step Meta System User and Google service-account setup</li>
+          <li>How every check works</li>
+          <li>The AI team and Action Brief lifecycle</li>
+          <li>Scheduling on macOS, Windows and Linux</li>
+          <li>Security and governance checklist</li>
+          <li>Client onboarding checklist</li>
+          <li>Troubleshooting guide</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The starter kit</h3>
+        <ul class="content-items">
+          <li>Working Node.js code for keychain credentials, parallel read-only Meta API checks, Google Sheet write-back and dated reports</li>
+          <li>A demo mode that runs on sample data in two minutes</li>
+          <li>Copy-paste role prompts for Analyst, Orchestrator and Executor</li>
+          <li>The Action Brief template</li>
+          <li>The Media Plan Tracker Sheet template</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="how">
+  <div class="container">
+    <div class="how-grid">
+      <div>
+        <span class="section-label">Built for</span>
+        <p class="pull-quote">"You'll need to be comfortable running a few terminal commands. If you'd rather not, see the done-for-you setup."</p>
+        <p class="how-body" style="margin-top:20px;"><a href="../setup/" style="color:var(--charcoal); font-weight:700; text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--charcoal);">Done-for-you setup →</a></p>
+      </div>
+      <div>
+        <ul class="content-items">
+          <li>Agency owners and ops leads managing several Meta Ads accounts</li>
+          <li>Freelance performance marketers who want agency-grade process</li>
+          <li>In-house teams running ads for multiple brands</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Security</span>
+      <h2 class="section-title">Built so you can explain it to a client</h2>
+    </div>
+    <ul class="content-items" style="max-width:640px;">
+      <li>Tokens live in your operating system's keychain, never in files</li>
+      <li>The checking path only reads; write access sits in a separate, approval-gated token</li>
+      <li>Every run leaves a dated report and a log in your media plan</li>
+      <li>Agents treat everything they read as data, not instructions</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" style="background:var(--white); padding:80px 0;" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title">Get the Playbook</h2>
+    </div>
+    <div class="pricing-wrap">
+      <div class="pricing-card">
+        <p class="pricing-name">Agentic Ad-Ops Playbook + Starter Kit</p>
+        <div class="price-row">
+          <span class="price-now" id="price-display">₹1,499</span>
+          <span class="price-was" id="price-was-display">₹2,499</span>
+        </div>
+        <p class="price-note" id="earlybird-note" data-ends="YYYY-MM-DD">Early-bird price until [DATE TBD]. Full price after.</p>
+        <p class="price-usd">Outside India? <a href="#" id="cta-pricing-usd" onclick="fireCheckout('USD')" style="font-weight:700;">Get it for $39 →</a></p>
+        <ul class="pricing-includes">
+          <li>Playbook PDF (16 pages, architecture to troubleshooting)</li>
+          <li>Node.js starter kit with demo mode</li>
+          <li>Role prompts for Analyst, Orchestrator and Executor</li>
+          <li>Action Brief template</li>
+          <li>Media Plan Tracker Sheet template</li>
+        </ul>
+        <a href="#" class="btn" id="cta-pricing-inr" onclick="fireCheckout('INR')">Get instant access</a>
+        <p class="pricing-subtext">Prefer us to set it up for you? <a href="../setup/" style="font-weight:700;">Done-for-you setup →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS — hidden placeholder, do not publish without real testimonials -->
+<!--
+<section class="section" id="testimonials" style="display:none;" aria-hidden="true">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">What people say</span>
+      <h2 class="section-title">ADD REAL TESTIMONIALS ONLY. Do not publish placeholder content.</h2>
+    </div>
+  </div>
+</section>
+-->
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Common questions</h2>
+    </div>
+    <ul class="faq-list" role="list">
+      <li class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span>Do I need to know how to code?</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-body" hidden>
+          <p>You'll need to run a few commands and edit a CSV and a Google Sheet. The Playbook walks through every step, and the demo mode lets you see it working before you connect anything.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span>Does the AI change my campaigns?</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-body" hidden>
+          <p>Not unless you set up the optional Executor and approve a written brief. The Analyst's token is read-only, so it can't write even if asked to.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span>Does it work on Windows?</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-body" hidden>
+          <p>Yes. macOS, Windows and Linux are all supported.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span>Which AI tools does it work with?</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-body" hidden>
+          <p>Any agent that can run terminal commands and read files. The daily check itself is a plain script and runs without any AI tool.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span>Does it replace my media buyer?</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-body" hidden>
+          <p>No. It catches problems and prepares decisions. Strategy, creative and budget calls stay with your team.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span>Is this affiliated with Meta?</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-body" hidden>
+          <p>No. It uses Meta's public Marketing API.</p>
+        </div>
+      </li>
+      <li class="faq-item">
+        <button class="faq-btn" aria-expanded="false">
+          <span>Refunds?</span>
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="faq-body" hidden>
+          <p>[Fill in your refund policy, or remove this question.]</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="cta">
+  <div class="cta-flag" aria-hidden="true"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Run the check tomorrow morning.</h2>
+      <p>The demo mode works on sample data. You can have it running in two minutes before you connect a single ad account.</p>
+      <a href="#" class="btn" onclick="fireCheckout('INR')">Get the Playbook (₹1,499)</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner container">
+    <a href="../" aria-label="The Spiral Squad home">
+      <img class="footer-logo" src="../assets/logo.png" alt="The Spiral Squad">
+    </a>
+    <ul class="footer-links">
+      <li><a href="../privacy-policy/">Privacy Policy</a></li>
+      <li><a href="../terms-of-service/">Terms of Service</a></li>
+      <li><a href="../data-deletion/">Data Deletion</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 THE SPIRAL SQUAD</p>
+  </div>
+  <div class="container" style="padding-top:20px; padding-bottom:28px;">
+    <p class="legal-note">Meta is a trademark of Meta Platforms, Inc. This product is not affiliated with or endorsed by Meta.</p>
+  </div>
+</footer>
+
+<script>
+  /* ── Hamburger ─────────────────────────────────────── */
+  (function() {
+    var btn   = document.querySelector('.nav-hamburger');
+    var links = document.getElementById('nav-links');
+    function closeMenu() {
+      links.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open navigation menu');
+    }
+    btn.addEventListener('click', function() {
+      var open = links.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+    links.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && links.classList.contains('is-open')) { closeMenu(); btn.focus(); }
+    });
+  })();
+
+  /* ── Early-bird price swap ─────────────────────────── */
+  (function() {
+    var note = document.getElementById('earlybird-note');
+    if (!note) return;
+    var ends = note.dataset.ends;
+    if (ends && ends !== 'YYYY-MM-DD' && new Date() > new Date(ends)) {
+      document.getElementById('price-display').textContent = '₹2,499';
+      document.getElementById('price-was-display').style.display = 'none';
+      note.style.display = 'none';
+    }
+  })();
+
+  /* ── FAQ accordion ─────────────────────────────────── */
+  (function() {
+    document.querySelectorAll('.faq-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.closest('.faq-item');
+        var body = item.querySelector('.faq-body');
+        var open = item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+        if (open) { body.removeAttribute('hidden'); } else { body.setAttribute('hidden', ''); }
+      });
+    });
+  })();
+
+  /* ── Scroll reveal ─────────────────────────────────── */
+  (function() {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items   = document.querySelectorAll('.reveal');
+    if (reduced || !('IntersectionObserver' in window)) {
+      items.forEach(function(el) { el.classList.add('in'); }); return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function(el) { io.observe(el); });
+    setTimeout(function() { items.forEach(function(el) { el.classList.add('in'); }); }, 1200);
+  })();
+
+  /* ── Checkout click handler (placeholder for pixel / analytics) ── */
+  function fireCheckout(currency) {
+    /* When META_PIXEL_ID is set, fire: fbq('track','InitiateCheckout',{value:...,currency:currency}); */
+  }
+</script>
+
+</body>
+</html>

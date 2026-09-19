@@ -1,0 +1,209 @@
+/* ── Reader — The Spiral Squad ───────────────────────────────── */
+:root {
+  --charcoal: #231F20;
+  --yellow:   #FCB121;
+  --paper:    #FAF7F2;
+  --rd-bg:    #1a1718;
+  --rd-border: rgba(255,255,255,.08);
+  --rd-muted:  rgba(255,255,255,.35);
+  --rd-dim:    rgba(255,255,255,.55);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { height: 100%; }
+body {
+  min-height: 100%;
+  display: flex; flex-direction: column;
+  background: var(--rd-bg);
+  color: #fff;
+  font-family: 'IBM Plex Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.rd-header {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px;
+  height: 56px;
+  background: var(--rd-bg);
+  border-bottom: 1px solid var(--rd-border);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.rd-logo img { height: 22px; display: block; opacity: .85; }
+
+.rd-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .68rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--rd-dim);
+  position: absolute; left: 50%; transform: translateX(-50%);
+  white-space: nowrap; max-width: 50%;
+  overflow: hidden; text-overflow: ellipsis;
+}
+
+.rd-lock {
+  display: flex; align-items: center; gap: 5px;
+  font-size: .62rem; color: var(--rd-muted); letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* ── Progress strip ──────────────────────────────────────────── */
+.rd-progress {
+  position: sticky; top: 56px; z-index: 99;
+  height: 2px;
+  background: rgba(255,255,255,.06);
+  flex-shrink: 0;
+}
+.rd-progress-fill {
+  height: 100%; width: 0%;
+  background: var(--yellow);
+  transition: width .22s ease;
+}
+
+/* ── Stage ───────────────────────────────────────────────────── */
+.rd-stage {
+  flex: 1;
+  display: flex; flex-direction: column;
+  align-items: center;
+  padding: 44px 16px 28px;
+}
+
+/* ── State messages ──────────────────────────────────────────── */
+#readerState {
+  display: none;
+  flex-direction: column;
+  align-items: center; justify-content: center;
+  min-height: 340px;
+  gap: 8px;
+  text-align: center;
+  font-size: .8rem; color: var(--rd-muted);
+  letter-spacing: .05em; line-height: 1.9;
+}
+#readerState[data-state="loading"] {
+  gap: 20px;
+}
+#readerState[data-state="loading"]::before {
+  content: '';
+  width: 26px; height: 26px;
+  border: 2px solid rgba(255,255,255,.08);
+  border-top-color: var(--yellow);
+  border-radius: 50%;
+  animation: rd-spin .75s linear infinite;
+}
+@keyframes rd-spin { to { transform: rotate(360deg); } }
+
+.rd-retry-btn {
+  margin-top: 14px;
+  padding: 9px 22px;
+  background: var(--yellow); color: var(--charcoal);
+  border: none; border-radius: 2px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .72rem; font-weight: 700; letter-spacing: .07em;
+  text-transform: uppercase; cursor: pointer;
+}
+.rd-retry-btn:hover { opacity: .88; }
+
+/* ── Document wrapper ────────────────────────────────────────── */
+#docWrap {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  max-width: 100%;
+}
+
+#pdfCanvas {
+  display: block;
+  max-width: 100%;
+  box-shadow:
+    0 4px 24px rgba(0,0,0,.55),
+    0 12px 60px rgba(0,0,0,.4),
+    0 1px 0 rgba(255,255,255,.04) inset;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  pointer-events: none;      /* block right-click / drag at canvas level */
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+#pdfCanvas.in { opacity: 1; }
+
+/* Capture pointer events on the wrapper to block context menu */
+#docWrap { pointer-events: auto; }
+#docWrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  z-index: 2;
+}
+
+/* ── Watermark ───────────────────────────────────────────────── */
+#watermark {
+  display: none;
+  position: absolute;
+  bottom: 14px; right: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .58rem; line-height: 1.7;
+  color: rgba(35,31,32,.18);
+  pointer-events: none;
+  user-select: none;
+  text-align: right;
+  z-index: 3;
+  white-space: pre-line;
+}
+
+/* ── Controls ────────────────────────────────────────────────── */
+.rd-controls {
+  position: sticky; bottom: 0;
+  display: flex; align-items: center; justify-content: center;
+  height: 68px;
+  background: var(--rd-bg);
+  border-top: 1px solid var(--rd-border);
+  flex-shrink: 0;
+  user-select: none;
+  z-index: 10;
+}
+
+.rd-btn {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  height: 42px; padding: 0 22px;
+  background: none;
+  border: 1px solid var(--rd-border);
+  color: var(--rd-dim);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .7rem; font-weight: 600; letter-spacing: .07em;
+  text-transform: uppercase; cursor: pointer;
+  transition: background .14s, color .14s, border-color .14s;
+  white-space: nowrap;
+}
+.rd-btn:first-child { border-radius: 2px 0 0 2px; }
+.rd-btn:last-child  { border-radius: 0 2px 2px 0; border-left: none; }
+.rd-btn:hover:not(:disabled) {
+  background: var(--yellow);
+  color: var(--charcoal);
+  border-color: var(--yellow);
+}
+.rd-btn:focus-visible {
+  outline: 2px solid var(--yellow); outline-offset: 2px;
+}
+.rd-btn:disabled { opacity: .22; cursor: not-allowed; }
+
+.rd-page-info {
+  display: flex; align-items: center; justify-content: center;
+  height: 42px; min-width: 104px; padding: 0 16px;
+  border: 1px solid var(--rd-border); border-left: none;
+  font-size: .7rem; color: var(--rd-muted);
+  letter-spacing: .04em; white-space: nowrap;
+}
+
+/* ── Mobile ───────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .rd-header { padding: 0 14px; }
+  .rd-title  { font-size: .6rem; max-width: 44%; }
+  .rd-stage  { padding: 20px 8px 12px; }
+  .rd-btn    { padding: 0 14px; font-size: .65rem; }
+  .rd-page-info { min-width: 76px; padding: 0 10px; font-size: .65rem; }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blueprint on its way — The Spiral Squad</title>
+  <meta name="description" content="Your Safe AI Ad-Ops Blueprint is on its way. Check your inbox.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner container">
+    <a href="../../" aria-label="The Spiral Squad home">
+      <img class="nav-logo" src="../../assets/logo.png" alt="The Spiral Squad">
+    </a>
+    <button class="nav-hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true" focusable="false">
+        <rect width="22" height="2" fill="currentColor"/>
+        <rect y="7" width="22" height="2" fill="currentColor"/>
+        <rect y="14" width="22" height="2" fill="currentColor"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../../#products">Products</a></li>
+      <li><a href="../../#custom-setup">Custom Setup</a></li>
+      <li><a href="../../privacy-policy/">Privacy Policy</a></li>
+      <li><a href="../../terms-of-service/">Terms</a></li>
+      <li><a href="../../data-deletion/">Data Deletion</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="prose-hero">
+  <div class="prose-wrap">
+    <h1>It's on its way</h1>
+    <p class="effective">The Spiral Squad · Safe AI Ad-Ops Blueprint</p>
+  </div>
+</div>
+
+<div class="prose">
+  <div class="prose-wrap">
+    <p>Check your inbox for the Blueprint and the Media Plan Tracker template. You can also download them here:</p>
+
+    <div class="thanks-downloads">
+      <!-- Replace # with actual file URLs once uploaded -->
+      <a href="#" class="btn" download>Safe-AI-Ad-Ops-Blueprint.pdf</a>
+      <a href="#" class="btn" download style="background:var(--charcoal); color:var(--white);">Media-Plan-Tracker-Template.xlsx</a>
+    </div>
+
+    <div class="thanks-upsell">
+      <p>Ready to run it? The Agentic Ad-Ops Playbook includes the working code, role prompts and step-by-step setup.</p>
+      <a href="../../ad-ops/" class="btn">Get the Playbook →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner container">
+    <a href="../../" aria-label="The Spiral Squad home">
+      <img class="footer-logo" src="../../assets/logo.png" alt="The Spiral Squad">
+    </a>
+    <ul class="footer-links">
+      <li><a href="../../privacy-policy/">Privacy Policy</a></li>
+      <li><a href="../../terms-of-service/">Terms of Service</a></li>
+      <li><a href="../../data-deletion/">Data Deletion</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 THE SPIRAL SQUAD</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var btn   = document.querySelector('.nav-hamburger');
+    var links = document.getElementById('nav-links');
+    function closeMenu() {
+      links.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open navigation menu');
+    }
+    btn.addEventListener('click', function() {
+      var open = links.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+    links.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeMenu); });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && links.classList.contains('is-open')) { closeMenu(); btn.focus(); }
+    });
+  })();
+</script>
+
+</body>
+</html>
