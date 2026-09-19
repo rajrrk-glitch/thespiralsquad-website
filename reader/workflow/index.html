@@ -28,34 +28,23 @@
   </span>
 </header>
 
-<div class="rd-progress" aria-hidden="true">
-  <div class="rd-progress-fill" id="progressFill"></div>
+<div id="readerState" role="status" aria-live="polite">Preparing your document…</div>
+
+<div id="iframeWrap">
+  <iframe
+    id="driveFrame"
+    allow="autoplay"
+    aria-label="The Workflow document"
+    title="The Workflow">
+  </iframe>
+  <div id="tileWatermark" aria-hidden="true"></div>
 </div>
 
-<main class="rd-stage">
-  <div id="readerState" role="status" aria-live="polite"></div>
-  <div id="docWrap" class="rd-doc-wrap" style="display:none;">
-    <canvas id="pdfCanvas" aria-label="Document page"></canvas>
-    <div id="watermark" aria-hidden="true"></div>
-  </div>
-</main>
-
-<footer class="rd-controls" role="navigation" aria-label="Page navigation">
-  <button id="prevBtn" class="rd-btn" aria-label="Previous page" disabled>← Prev</button>
-  <span class="rd-page-info">
-    <span id="pageNum" aria-live="polite" aria-atomic="true">—</span>&thinsp;/&thinsp;<span id="pageCount">—</span>
-  </span>
-  <button id="nextBtn" class="rd-btn" aria-label="Next page" disabled>Next →</button>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
   window.READER_CONFIG = {
-    title:     'The Workflow',
-    productId: 'workflow',
-    pdfPath:   '../../workflow-pdf/The-Workflow.pdf',
-    watermark: null
-    /* Future: watermark: { email: '', orderId: '', label: 'Personal Use Only' } */
+    title:       'The Workflow',
+    productCode: 'WF',
+    driveFileId: 'PASTE_GOOGLE_DRIVE_FILE_ID_HERE'
   };
 </script>
 <script src="../reader.js"></script>
