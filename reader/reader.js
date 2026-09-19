@@ -17,7 +17,7 @@
   var wrapEl      = document.getElementById('iframeWrap');
 
   /* ── Load iframe via /embed (no Drive toolbar / share button) ─ */
-  iframeEl.src = 'https://drive.google.com/file/d/' + config.driveFileId + '/embed';
+  iframeEl.src = 'https://drive.google.com/file/d/' + config.driveFileId + '/preview';
 
   iframeEl.addEventListener('load', function () {
     stateEl.style.display   = 'none';

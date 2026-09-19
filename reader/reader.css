@@ -95,7 +95,8 @@ body {
 #driveFrame {
   display: block;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 52px); /* compensates for the negative offset */
+  margin-top: -52px;          /* shifts iframe up, clipping Drive toolbar */
   border: none;
 }
 
