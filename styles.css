@@ -647,6 +647,15 @@ footer { background: var(--charcoal); border-top: 2px solid var(--yellow); paddi
   color: var(--ink-soft); line-height: 1.68; flex: 1;
   margin-bottom: 22px; overflow-wrap: anywhere;
 }
+.prod-desc-lead { margin-bottom: 10px; }
+.prod-desc-list {
+  list-style: none; padding: 0; margin: 0;
+}
+.prod-desc-list li {
+  font-family: 'Fraunces', serif; font-size: .86rem;
+  color: var(--ink-soft); line-height: 1.65; padding: 1px 0;
+}
+.prod-price-orig { font-size: .6em; opacity: .45; font-weight: 400; }
 .prod-cta { align-self: flex-start; }
 .prod-cross {
   font-family: 'IBM Plex Mono', monospace; font-size: .67rem;
