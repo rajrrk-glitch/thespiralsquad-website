@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Workflow — The Spiral Squad</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Montserrat:wght@700;800&display=swap">
+  <link rel="stylesheet" href="../reader.css">
+</head>
+<body>
+
+<header class="rd-header">
+  <a class="rd-logo" href="../../" aria-label="The Spiral Squad home">
+    <img src="../../assets/logo.png" alt="The Spiral Squad">
+  </a>
+  <span class="rd-title" aria-hidden="true">The Workflow</span>
+  <span class="rd-lock" aria-label="Private document">
+    <svg width="13" height="15" viewBox="0 0 13 15" fill="none" aria-hidden="true">
+      <rect x="1.5" y="6.5" width="10" height="7.5" rx="1" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M3.5 6.5V4.5a3 3 0 016 0v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    Private
+  </span>
+</header>
+
+<div class="rd-progress" aria-hidden="true">
+  <div class="rd-progress-fill" id="progressFill"></div>
+</div>
+
+<main class="rd-stage">
+  <div id="readerState" role="status" aria-live="polite"></div>
+  <div id="docWrap" class="rd-doc-wrap" style="display:none;">
+    <canvas id="pdfCanvas" aria-label="Document page"></canvas>
+    <div id="watermark" aria-hidden="true"></div>
+  </div>
+</main>
+
+<footer class="rd-controls" role="navigation" aria-label="Page navigation">
+  <button id="prevBtn" class="rd-btn" aria-label="Previous page" disabled>← Prev</button>
+  <span class="rd-page-info">
+    <span id="pageNum" aria-live="polite" aria-atomic="true">—</span>&thinsp;/&thinsp;<span id="pageCount">—</span>
+  </span>
+  <button id="nextBtn" class="rd-btn" aria-label="Next page" disabled>Next →</button>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  window.READER_CONFIG = {
+    title:     'The Workflow',
+    productId: 'workflow',
+    pdfPath:   '../../workflow-pdf/The-Workflow.pdf',
+    watermark: null
+    /* Future: watermark: { email: '', orderId: '', label: 'Personal Use Only' } */
+  };
+</script>
+<script src="../reader.js"></script>
+
+</body>
+</html>
