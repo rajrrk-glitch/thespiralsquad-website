@@ -89,6 +89,7 @@ body {
   position: relative;
   flex: 1;
   visibility: hidden;
+  overflow: hidden;
 }
 
 #driveFrame {
