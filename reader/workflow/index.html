@@ -13,8 +13,9 @@
   <link rel="stylesheet" href="../reader.css">
   <style>
     /* ── Workflow page: scroll layout for identity-prompts section ── */
-    html, body { height: auto; overflow-y: auto; min-height: 100%; }
-    #iframeWrap  { height: calc(100vh - 56px); flex-shrink: 0; visibility: visible; }
+    html { height: auto !important; overflow-y: auto !important; }
+    body { height: auto !important; overflow-y: visible !important; min-height: 100vh; }
+    #iframeWrap  { height: calc(100vh - 56px) !important; flex: none !important; visibility: visible !important; }
 
     /* ── Identity Prompts section ──────────────────────────────────── */
     #identityPrompts {
