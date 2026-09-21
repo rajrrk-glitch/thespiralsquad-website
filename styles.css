@@ -609,6 +609,27 @@ footer { background: var(--charcoal); border-top: 2px solid var(--yellow); paddi
 }
 .prod-type--service { background: var(--yellow); color: var(--charcoal); }
 
+/* ---------- category block (extensible, one per product type) ---------- */
+.prod-category-head {
+  display: grid; grid-template-columns: auto 1fr;
+  align-items: baseline; gap: 20px 32px;
+  padding: 22px 0 24px; margin-bottom: 28px;
+  border-top: 2px solid var(--charcoal); border-bottom: 1px solid var(--line);
+}
+.prod-category-label {
+  font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--charcoal); white-space: nowrap;
+  background: var(--yellow); padding: 5px 12px;
+  align-self: center;
+}
+.prod-category-desc {
+  font-family: 'Fraunces', serif; font-size: .92rem;
+  color: var(--ink-soft); line-height: 1.6; max-width: 64ch;
+}
+@media (max-width: 640px) {
+  .prod-category-head { grid-template-columns: 1fr; gap: 12px; }
+}
+
 /* ---------- group labels ---------- */
 .products-group-label {
   font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
