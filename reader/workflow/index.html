@@ -20,7 +20,7 @@
     /* ── Identity Prompts section ──────────────────────────────────── */
     #identityPrompts {
       padding: 48px 24px 56px;
-      border-bottom: 1px solid var(--rd-border);
+      border-top: 1px solid var(--rd-border);
       flex-shrink: 0;
     }
 
@@ -128,6 +128,17 @@
   </span>
 </header>
 
+<div id="iframeWrap">
+  <div id="readerState" role="status" aria-live="polite">Preparing your document…</div>
+  <iframe
+    id="driveFrame"
+    allow="autoplay"
+    aria-label="The Workflow document"
+    title="The Workflow">
+  </iframe>
+  <div id="tileWatermark" aria-hidden="true"></div>
+</div>
+
 <section id="identityPrompts" aria-label="Identity Prompts">
   <div class="ip-head">
     <h2>Identity Prompts</h2>
@@ -188,17 +199,6 @@
 
   </div>
 </section>
-
-<div id="iframeWrap">
-  <div id="readerState" role="status" aria-live="polite">Preparing your document…</div>
-  <iframe
-    id="driveFrame"
-    allow="autoplay"
-    aria-label="The Workflow document"
-    title="The Workflow">
-  </iframe>
-  <div id="tileWatermark" aria-hidden="true"></div>
-</div>
 
 <script>
   window.READER_CONFIG = {
