@@ -176,6 +176,28 @@ a    { color: inherit; }
 .docket .code { font-size: .76rem; color: var(--yellow); flex: none; width: 52px; }
 .docket .name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .9rem; color: var(--white); }
 
+/* category docket rows */
+.docket-cat {
+  display: flex; flex-direction: column; gap: 3px;
+  text-decoration: none; flex: 1;
+}
+.docket-cat-desc {
+  font-family: 'IBM Plex Mono', monospace; font-size: .62rem;
+  color: rgba(255,255,255,.32); letter-spacing: .04em; line-height: 1.4;
+}
+a.docket-cat:hover .name { color: var(--yellow); }
+a.docket-cat:hover .docket-cat-desc { color: rgba(255,255,255,.5); }
+
+/* coming-soon rows */
+.docket-soon { opacity: .45; }
+.docket-soon .docket-cat { cursor: default; }
+.docket-pill {
+  font-family: 'IBM Plex Mono', monospace; font-size: .58rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,.5); border: 1px solid rgba(255,255,255,.2);
+  padding: 2px 7px; align-self: center; flex: none; white-space: nowrap;
+}
+
 /* ---------- ticker ---------- */
 .ticker {
   background: var(--charcoal);
