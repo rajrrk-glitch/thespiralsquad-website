@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Access &amp; Control Blueprint — The Spiral Squad</title>
-  <meta name="description" content="Connect AI to your Meta Ads through controlled, scoped API access. 30-minute setup. No browser automation. No blanket access. ₹299 one-time.">
+  <meta name="description" content="A practical, screenshot-by-screenshot guide to setting up controlled AI access to Meta. Understand exactly what you've given it access to. ₹299 one-time.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thespiralsquad.com/products/access-control/">
   <meta property="og:title" content="Access &amp; Control Blueprint — The Spiral Squad">
-  <meta property="og:description" content="Connect AI to your Meta Ads without handing it the keys to everything. ₹299 one-time.">
+  <meta property="og:description" content="You connected AI to Meta. But what did you actually give it access to? ₹299 one-time.">
   <meta property="og:image" content="https://thespiralsquad.com/assets/social-card.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -184,7 +184,7 @@
     .section-body {
       color: var(--soft);
       max-width: 540px;
-      margin-bottom: 36px;
+      margin-bottom: 20px;
       font-size: .95rem;
     }
 
@@ -224,14 +224,15 @@
     .price-includes li {
       font-size: .88rem;
       color: var(--soft);
-      padding: 7px 0;
+      padding: 9px 0;
       border-bottom: 1px solid var(--line);
       display: flex;
       gap: 10px;
-      align-items: baseline;
+      align-items: flex-start;
     }
     .price-includes li:last-child { border-bottom: none; }
-    .price-includes li span { color: var(--yellow); flex-shrink: 0; }
+    .price-includes li > span { color: var(--yellow); flex-shrink: 0; margin-top: 1px; }
+    .price-includes li strong { color: var(--paper); }
     .price-refund {
       font-family: 'IBM Plex Mono', monospace;
       font-size: .62rem;
@@ -239,52 +240,6 @@
       margin-top: 14px;
       line-height: 1.6;
     }
-
-    /* ENEMY FRAME */
-    .compare-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 28px;
-      font-size: .86rem;
-    }
-    .compare-table th {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: .58rem;
-      font-weight: 600;
-      letter-spacing: .09em;
-      text-transform: uppercase;
-      color: var(--softer);
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--line);
-      text-align: left;
-    }
-    .compare-table td {
-      padding: 13px 14px;
-      border-bottom: 1px solid var(--line);
-      color: var(--soft);
-      vertical-align: top;
-    }
-    .compare-table tr:last-child td { border-bottom: none; }
-    .compare-table .td-label {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      color: var(--white);
-      font-size: .78rem;
-    }
-    .compare-table .td-bad  { color: var(--softer); }
-    .compare-table .td-good { color: #7bdfb0; }
-    .compare-this-header td {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: .6rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      padding-top: 10px;
-      padding-bottom: 4px;
-      border-bottom: none;
-    }
-    .compare-table .row-this td { background: rgba(252,177,33,.04); }
-    .compare-table .row-this td.td-label { color: var(--yellow); }
 
     /* ACCESS CHAIN */
     .access-chain {
@@ -379,7 +334,7 @@
       text-transform: uppercase;
       color: var(--softer);
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 10px;
     }
     .not-for p { font-size: .86rem; color: var(--soft); }
 
@@ -468,7 +423,7 @@
     .final-cta p {
       font-size: .95rem;
       color: var(--soft);
-      margin-bottom: 32px;
+      margin-bottom: 12px;
     }
     .final-price {
       font-family: 'IBM Plex Mono', monospace;
@@ -548,13 +503,158 @@
     }
     .sticky-bar .btn { width: 100%; justify-content: center; }
 
+    /* PROBLEM QUESTIONS */
+    .problem-questions {
+      list-style: none;
+      margin: 4px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .problem-questions li {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--paper);
+      padding-left: 16px;
+      position: relative;
+    }
+    .problem-questions li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: var(--yellow);
+    }
+
+    /* PRINCIPLE VISUAL */
+    .principle-visual {
+      display: flex;
+      align-items: stretch;
+      margin: 28px 0 8px;
+      background: var(--surf);
+      padding: 18px 16px;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .principle-node {
+      flex: 1;
+      min-width: 80px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .principle-node--lit { border-color: rgba(252,177,33,.4); }
+    .principle-node-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .52rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--softer);
+      display: block;
+      margin-bottom: 5px;
+    }
+    .principle-node-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .78rem;
+      font-weight: 800;
+      color: var(--yellow);
+      letter-spacing: .04em;
+    }
+    .principle-arrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .75rem;
+      color: var(--yellow);
+      padding: 0 8px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    /* CALLOUT */
+    .callout {
+      background: rgba(252,177,33,.06);
+      border-left: 3px solid var(--yellow);
+      padding: 18px 22px;
+      margin: 4px 0 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--paper);
+      line-height: 1.5;
+      max-width: 540px;
+    }
+
+    /* DIY LIST */
+    .diy-list {
+      list-style: none;
+      margin: 4px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      max-width: 400px;
+    }
+    .diy-list li {
+      font-size: .9rem;
+      color: var(--soft);
+      padding-left: 18px;
+      position: relative;
+    }
+    .diy-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--softer);
+    }
+
+    /* CHECKLIST */
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .checklist li {
+      font-size: .88rem;
+      color: var(--soft);
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      line-height: 1.6;
+    }
+    .checklist li span { color: var(--yellow); flex-shrink: 0; font-family: 'IBM Plex Mono', monospace; font-size: .75rem; }
+    .checklist--negative li span { color: var(--softer); }
+
+    /* PREVIEW PLACEHOLDER */
+    .preview-card {
+      background: var(--surf);
+      border: 1px dashed rgba(252,177,33,.22);
+      padding: 40px 28px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .preview-card-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .56rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--softer);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .preview-card-text {
+      font-size: .84rem;
+      color: var(--softer);
+      font-style: italic;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 640px) {
       .top-bar-note { display: none; }
       .access-chain { flex-direction: column; align-items: stretch; }
       .chain-arrow { align-self: center; transform: rotate(90deg); }
-      .compare-table { font-size: .78rem; }
-      .compare-table th, .compare-table td { padding: 9px 10px; }
+      .principle-visual { flex-direction: column; align-items: stretch; }
+      .principle-arrow { transform: rotate(90deg); align-self: center; }
       .sticky-bar { display: block; }
     }
   </style>
@@ -566,7 +666,7 @@
   n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
   t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
   document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', 'PIXEL_ID_PLACEHOLDER');
+  fbq('init', '274335162095786');
   fbq('track', 'PageView');
   fbq('track', 'ViewContent', {
     content_name: 'Access & Control Blueprint',
@@ -577,7 +677,7 @@
   });
   </script>
   <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=PIXEL_ID_PLACEHOLDER&ev=PageView&noscript=1"/></noscript>
+    src="https://www.facebook.com/tr?id=274335162095786&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -592,7 +692,7 @@
     <span class="top-bar-note mono">One-time · Not a subscription</span>
   </div>
   <a href="https://pages.razorpay.com/accesscontrol" class="btn btn--sm" id="cta-topbar">
-    Get controlled access
+    Get Access &amp; Control
   </a>
 </div>
 
@@ -600,15 +700,14 @@
 <section class="hero">
   <div class="container">
     <p class="hero-eyebrow">Access &amp; Control Blueprint</p>
-    <h1>Connect AI to your Meta Ads<br>without handing it <em>the keys to everything.</em></h1>
+    <h1>You connected AI to Meta.<br><em>But what did you actually give it access to?</em></h1>
     <p class="hero-sub">
-      Most setups give the AI your entire Facebook login. This one gives it only what
-      you choose — down to the specific ad account and the specific permissions,
-      using Meta's own API. Built from weeks of testing. Setup in ~30 minutes.
+      A practical, screenshot-by-screenshot guide to setting up controlled AI access to Meta —
+      without figuring the whole thing out yourself.
     </p>
     <a href="https://pages.razorpay.com/accesscontrol" class="btn" id="cta-hero">
-      Get controlled access — ₹299
-      <span class="btn-sub">One-time · Instant access · Setup in ~30 min</span>
+      Get Access &amp; Control — ₹299
+      <span class="btn-sub">Instant digital access · ~30 min setup</span>
     </a>
     <div class="hero-meta">
       <span class="hero-badge mono">₹299 · One-time</span>
@@ -620,133 +719,126 @@
   </div>
 </section>
 
-<!-- 3. PRICING -->
+<!-- 3. PROBLEM -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">The setup nobody talks about</span>
+    <h2>The part nobody talks about.</h2>
+    <p class="section-body">Everyone is talking about connecting AI to Meta. Very few people talk about what happens after you connect it.</p>
+    <ul class="problem-questions">
+      <li>What can it see?</li>
+      <li>What can it change?</li>
+      <li>What does it actually have access to?</li>
+      <li>And how do you make sure you're giving it only what it needs?</li>
+    </ul>
+    <p class="section-body">That's what this guide is for.</p>
+  </div>
+</section>
+
+<!-- 4. CORE IDEA -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">The principle</span>
+    <h2>AI doesn't need the keys to everything.</h2>
+    <p class="section-body">
+      The goal isn't to give AI as much access as possible.<br>
+      The goal is to give it the access it actually needs — and understand exactly what you've given it.
+    </p>
+
+    <div class="principle-visual">
+      <div class="principle-node principle-node--lit">
+        <span class="principle-node-label">What you set up</span>
+        <span class="principle-node-name">Access</span>
+      </div>
+      <span class="principle-arrow">→</span>
+      <div class="principle-node principle-node--lit">
+        <span class="principle-node-label">What you define</span>
+        <span class="principle-node-name">Permission</span>
+      </div>
+      <span class="principle-arrow">→</span>
+      <div class="principle-node principle-node--lit">
+        <span class="principle-node-label">What you keep</span>
+        <span class="principle-node-name">Control</span>
+      </div>
+    </div>
+    <p class="chain-caption">Set up correctly once. Know exactly what's accessible. Then automate with confidence.</p>
+  </div>
+</section>
+
+<!-- 5. WHAT'S INSIDE -->
 <section class="section">
   <div class="container">
     <span class="section-label">What you get</span>
-    <h2>One guide. One price. No upsells.</h2>
+    <h2>What's inside.</h2>
     <div class="price-card">
       <p class="price-card-label mono">Access &amp; Control Blueprint</p>
       <div class="price-main mono">₹299</div>
       <p class="price-note mono">One-time payment · Not a subscription</p>
       <ul class="price-includes">
-        <li><span>📕</span> The Access &amp; Control Blueprint guide</li>
-        <li><span>📸</span> Exact screenshots for every setup step</li>
-        <li><span>✅</span> Final access checklist</li>
-        <li><span>🧩</span> Copy/paste prompts to test the connection</li>
-        <li><span>🔧</span> Troubleshooting section</li>
-        <li><span>🔄</span> Updates when the setup materially changes</li>
-        <li><span>🔐</span> Private reader with authenticated access</li>
+        <li><span>📕</span><div><strong>Access &amp; Control Blueprint</strong> — A practical guide covering the complete setup.</div></li>
+        <li><span>📸</span><div><strong>Screenshots for every step</strong> — Follow the actual interface instead of guessing where to click.</div></li>
+        <li><span>✅</span><div><strong>Final access checklist</strong> — Confirm everything is configured correctly before you move forward.</div></li>
+        <li><span>🧩</span><div><strong>Copy/paste test prompts</strong> — Simple prompts to verify the connection works.</div></li>
+        <li><span>🔧</span><div><strong>Troubleshooting section</strong> — Common problems and what to check when something doesn't work.</div></li>
+        <li><span>🔄</span><div><strong>Updates</strong> — The guide is updated when the setup materially changes.</div></li>
+        <li><span>🔐</span><div><strong>Private reader</strong> — Access the product through the private authenticated reader.</div></li>
       </ul>
       <a href="https://pages.razorpay.com/accesscontrol" class="btn" id="cta-pricing">
-        Get controlled access — ₹299
-        <span class="btn-sub">One-time · Instant access · Setup in ~30 min</span>
+        Get Access &amp; Control — ₹299
+        <span class="btn-sub">Instant digital access · ~30 min setup</span>
       </a>
-      <p class="price-refund mono">[PLACEHOLDER — Raj to confirm refund terms, e.g. "7-day refund if it doesn't work for your setup — email raj@thespiralsquad.com"]</p>
+      <p class="price-refund mono">Digital product. Access is delivered instantly on payment. No refunds.</p>
     </div>
   </div>
 </section>
 
-<!-- 4. ENEMY FRAME -->
+<!-- 6. WHY PAY ₹299 -->
 <section class="section">
   <div class="container">
-    <span class="section-label">Why not the alternatives</span>
-    <h2>There are two standard ways to connect AI to Meta Ads. Both have real problems.</h2>
-    <p class="section-body">
-      This Blueprint is the third option — the one that gives you control.
-    </p>
-
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Method</th>
-          <th>How it works</th>
-          <th>The problem</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="td-label">Browser extension</td>
-          <td>A script clicks inside Ads Manager on your behalf</td>
-          <td class="td-bad">Breaks when Meta updates the UI. Risks account restrictions — it behaves like a bot.</td>
-        </tr>
-        <tr>
-          <td class="td-label">Official connector<br>(incl. Meta's MCP)</td>
-          <td>Authorises access through your login in one step</td>
-          <td class="td-bad">Can't be scoped. Anything your login can reach, the AI can reach.</td>
-        </tr>
-        <tr class="compare-this-header">
-          <td colspan="3">→ This Blueprint</td>
-        </tr>
-        <tr class="row-this">
-          <td class="td-label">API + System User</td>
-          <td>Developer app → System User → only the accounts and permissions you choose</td>
-          <td class="td-good">Scoped per account, per permission. Meta's own API — not browser automation. Scales as you add agents.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div class="access-chain">
-      <div class="chain-node chain-node--lit">
-        <span class="chain-node-label">You create</span>
-        <span class="chain-node-name">Developer App</span>
-      </div>
-      <span class="chain-arrow">→</span>
-      <div class="chain-node chain-node--lit">
-        <span class="chain-node-label">Under it</span>
-        <span class="chain-node-name">System User</span>
-      </div>
-      <span class="chain-arrow">→</span>
-      <div class="chain-node chain-node--lit">
-        <span class="chain-node-label">You choose</span>
-        <span class="chain-node-name">Specific Ad Accounts</span>
-      </div>
-      <span class="chain-arrow">→</span>
-      <div class="chain-node">
-        <span class="chain-node-label">Gets access</span>
-        <span class="chain-node-name">AI Agent</span>
-      </div>
-    </div>
-    <p class="chain-caption">The AI only sees what you gave it. Nothing else.</p>
+    <span class="section-label">The honest answer</span>
+    <h2>You can figure this out yourself.</h2>
+    <p class="section-body">Of course you can.</p>
+    <ul class="diy-list">
+      <li>Spend the time researching it.</li>
+      <li>Watch different tutorials.</li>
+      <li>Open ten different tabs.</li>
+      <li>Figure out which steps still work.</li>
+      <li>Try something.</li>
+      <li>Break something.</li>
+      <li>Try again.</li>
+    </ul>
+    <p class="section-body">Or…</p>
+    <div class="callout">Spend ₹299 and start with the setup already documented.</div>
+    <p class="section-body">That's what you're paying for.</p>
+    <p class="section-body" style="font-size:.85rem;color:var(--softer);margin-top:-12px;">Built from research and weeks of testing. Condensed into a 30-minute plug-and-play setup.</p>
   </div>
 </section>
 
-<!-- 5. WHO IT'S FOR -->
+<!-- 7. WHO IT'S FOR -->
 <section class="section">
   <div class="container">
     <span class="section-label">Is this for you?</span>
-    <h2>Who buys this.</h2>
-    <ul class="for-list">
-      <li class="for-item">
-        <span class="for-num mono">01</span>
-        <div>
-          <p class="for-title">Agencies and freelancers managing multiple client accounts</p>
-          <p class="for-desc">You can't give an AI access to every client at once. This gives you one System User per client, scoped to their accounts only. Clean separation.</p>
-        </div>
-      </li>
-      <li class="for-item">
-        <span class="for-num mono">02</span>
-        <div>
-          <p class="for-title">Business owners who want AI on their ads — but not unlimited access</p>
-          <p class="for-desc">You want the efficiency. You don't want to hand a tool the login that also reaches your business page, billing settings, and personal profile.</p>
-        </div>
-      </li>
-      <li class="for-item">
-        <span class="for-num mono">03</span>
-        <div>
-          <p class="for-title">People who hit limits, bans, or broken automations with other setups</p>
-          <p class="for-desc">If a browser extension broke or an official connector couldn't be scoped — this is the stable foundation those setups were missing.</p>
-        </div>
-      </li>
+    <h2>This is for you if…</h2>
+    <ul class="checklist" style="margin-top:16px;">
+      <li><span>→</span> You're experimenting with AI + Meta Ads.</li>
+      <li><span>→</span> You want to connect AI to your advertising setup.</li>
+      <li><span>→</span> You don't want to blindly give AI access to things.</li>
+      <li><span>→</span> You want the setup documented step-by-step.</li>
+      <li><span>→</span> You'd rather follow a tested setup than piece it together yourself.</li>
     </ul>
     <div class="not-for">
-      <span class="not-for-label mono">Not for you if</span>
-      <p>You want a fully automated system with zero manual setup. That's a service, not a guide. <a href="/products/#custom-setup" style="color:var(--yellow);">Custom Setup →</a></p>
+      <span class="not-for-label mono">This is not for you if…</span>
+      <ul class="checklist checklist--negative">
+        <li><span>—</span> You're looking for a Meta Ads course.</li>
+        <li><span>—</span> You want someone to run your ads for you.</li>
+        <li><span>—</span> You're looking for a magic AI button.</li>
+        <li><span>—</span> You don't want to do the initial setup.</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- 6. FOUNDER -->
+<!-- 8. FOUNDER -->
 <section class="section">
   <div class="container">
     <span class="section-label">Who built this</span>
@@ -754,9 +846,9 @@
     <p class="founder-title mono">Performance Marketer · The Spiral Squad</p>
     <p class="founder-body">
       I run Meta ads for brands every day. Not as a course creator — I manage real campaigns for
-      real budgets. When I needed AI running on my ad accounts, I needed a setup that was safe and
-      scoped, not one that handed a model the keys to a client's account.
-      This Blueprint is what I built for myself. It's been running on my AI ad-ops stack for 3 months.
+      real budgets. When I wanted AI running on my ad accounts, I needed a setup that was clear
+      and controlled, not one that handed a model access to everything it could reach.
+      This Blueprint is what I built for myself. It's been running on my setup for months.
     </p>
     <ul class="founder-creds">
       <li>7 years running Meta Ads</li>
@@ -766,51 +858,53 @@
   </div>
 </section>
 
-<!-- 7. FAQ -->
+<!-- 10. FAQ -->
 <section class="section">
   <div class="container">
     <span class="section-label">Questions</span>
     <h2>What people ask before buying.</h2>
     <ul class="faq-list">
       <li class="faq-item">
-        <div class="faq-q">Do I need to know how to code?</div>
-        <div class="faq-a">No. Every step has a screenshot. You're clicking through a dashboard, not writing scripts. If you can follow a Google Doc, you can do this setup.</div>
+        <div class="faq-q">Do I need to be technical?</div>
+        <div class="faq-a">No. The guide is designed to be followed step-by-step, with screenshots and clear instructions. If you can follow a Google Doc, you can do this setup.</div>
       </li>
       <li class="faq-item">
-        <div class="faq-q">Is this safe for my ad account?</div>
-        <div class="faq-a">Yes. It uses Meta's own API and System User infrastructure — not browser automation. The access is limited to exactly what you allow. Meta built this path for developers and agencies.</div>
+        <div class="faq-q">Is this a Meta Ads course?</div>
+        <div class="faq-a">No. This is specifically about the access and control setup when connecting AI to Meta. It doesn't teach media buying, campaign strategy, or ad optimisation.</div>
       </li>
       <li class="faq-item">
-        <div class="faq-q">Why not just use Meta's official connector?</div>
-        <div class="faq-a">Meta's official connector works through your login — whatever your Facebook account can reach, the AI can reach. There's no way to limit it to one client or one ad account. This Blueprint gives you per-account, per-permission scoping the official connector doesn't support.</div>
+        <div class="faq-q">Does this guarantee better ad performance?</div>
+        <div class="faq-a">No. It doesn't guarantee performance. It helps you get the access layer set up properly so you can work with AI more effectively. What you do with that access is up to you.</div>
       </li>
       <li class="faq-item">
-        <div class="faq-q">Is ₹299 just a repackaged tutorial?</div>
-        <div class="faq-a">No. The System User + Developer App path is not well-documented, and most tutorials don't cover it. What's here: exact screenshots for every step, a checklist, copy-paste test prompts, a troubleshooting section, and updates when the setup changes.</div>
+        <div class="faq-q">Is this a one-click setup?</div>
+        <div class="faq-a">No. There is an initial setup. That's the point — do it properly once instead of repeatedly figuring it out every time you want to use AI with your ads.</div>
       </li>
       <li class="faq-item">
-        <div class="faq-q">Where do I store the access token after setup?</div>
-        <div class="faq-a">The guide covers how to handle the token safely and where it goes in your configuration. It doesn't prescribe a specific storage tool — that depends on your setup — but covers the patterns and what to avoid.</div>
+        <div class="faq-q">Is there anything I need to save or store after setup?</div>
+        <div class="faq-a">Yes — the guide walks you through what to save, where it goes, and how to keep it secure. The exact approach depends on your setup, but the guide covers what matters and what to avoid.</div>
       </li>
       <li class="faq-item">
         <div class="faq-q">What do I do after the access is set up?</div>
-        <div class="faq-a">The access setup is the foundation. Once it's done, any MCP-compatible agent — Claude, ChatGPT, others — can connect to your Meta Ads. If you want the full operating process for running ad-ops with AI, that's what <a href="/products/workflow/" style="color:var(--yellow);">The Workflow</a> covers.</div>
+        <div class="faq-a">The access setup is the foundation. Once it's done, any AI agent tool — Claude, ChatGPT, others — can connect to your Meta Ads. If you want the full operating process for running ad-ops with AI, that's what <a href="/products/workflow/" style="color:var(--yellow);">The Workflow</a> covers.</div>
       </li>
     </ul>
   </div>
 </section>
 
-<!-- 8. FINAL CTA -->
+<!-- 11. FINAL CTA -->
 <section class="final-cta">
   <div class="container">
     <span class="section-label">Get it</span>
-    <h2>Stop letting the setup be the bottleneck.</h2>
-    <p>The access layer is a solved problem. ₹299. Yours forever.</p>
-    <div class="final-price mono">₹299</div>
-    <p class="final-price-note mono">One-time payment · Not a subscription · Instant access</p>
+    <h2>Ready to stop figuring out the access part?</h2>
+    <p>Set it up once.</p>
+    <p>Understand what you've given AI access to.</p>
+    <p>Then move on to the actual work.</p>
+    <div class="final-price mono" style="margin-top:24px;">₹299</div>
+    <p class="final-price-note mono">Digital product · Private authenticated access · One-time payment</p>
     <a href="https://pages.razorpay.com/accesscontrol" class="btn" id="cta-final">
-      Get controlled access — ₹299
-      <span class="btn-sub">One-time · Instant access · Setup in ~30 min</span>
+      Get Access &amp; Control — ₹299
+      <span class="btn-sub">Instant digital access · ~30 min setup</span>
     </a>
     <div class="cross-sell">
       Access set up? <a href="/products/workflow/">The Workflow is the next step →</a>
@@ -834,7 +928,7 @@
 <!-- MOBILE STICKY BAR -->
 <div class="sticky-bar" id="stickyBar">
   <a href="https://pages.razorpay.com/accesscontrol" class="btn" id="cta-sticky">
-    Get controlled access — ₹299
+    Get Access &amp; Control — ₹299
   </a>
 </div>
 
