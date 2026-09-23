@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access &amp; Control Blueprint — The Spiral Squad</title>
+  <meta name="description" content="A practical, screenshot-by-screenshot guide to setting up controlled AI access to Meta. Understand exactly what you've given it access to. ₹299 one-time.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thespiralsquad.com/products/access-control/">
+  <meta property="og:title" content="Access &amp; Control Blueprint — The Spiral Squad">
+  <meta property="og:description" content="You connected AI to Meta. But what did you actually give it access to? ₹299 one-time.">
+  <meta property="og:image" content="https://thespiralsquad.com/assets/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #1a1718;
+      --surf:   #231F20;
+      --yellow: #FCB121;
+      --white:  #FFFFFF;
+      --paper:  #FAF7F2;
+      --soft:   rgba(250,247,242,.62);
+      --softer: rgba(250,247,242,.32);
+      --line:   rgba(250,247,242,.10);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--paper);
+      font-family: 'Fraunces', Georgia, serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .mono { font-family: 'Montserrat', -apple-system, sans-serif; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; }
+    a    { color: inherit; }
+    img  { max-width: 100%; display: block; }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+    .wide      { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    /* TOP BAR */
+    .top-bar {
+      background: var(--surf);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .top-bar-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--softer);
+    }
+    .top-bar-sep { color: var(--line); }
+    .top-bar-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .top-bar-price {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .75rem;
+      color: var(--yellow);
+    }
+    .top-bar-note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .62rem;
+      color: var(--softer);
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--yellow);
+      color: var(--bg);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      padding: 13px 24px;
+      text-decoration: none;
+      transition: opacity .15s;
+      white-space: nowrap;
+    }
+    .btn:hover { opacity: .88; }
+    .btn--sm { padding: 9px 18px; font-size: .72rem; flex-direction: row; }
+    .btn-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .58rem;
+      font-weight: 400;
+      color: rgba(26,23,24,.65);
+      margin-top: 3px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 64px 0 56px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-eyebrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .62rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(1.85rem, 6vw, 2.7rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: normal; color: var(--yellow); }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--soft);
+      max-width: 540px;
+      margin-bottom: 32px;
+      line-height: 1.75;
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .hero-badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .62rem;
+      color: var(--softer);
+    }
+
+    /* SECTION BASE */
+    .section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .58rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .section h2 {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+    .section-body {
+      color: var(--soft);
+      max-width: 540px;
+      margin-bottom: 20px;
+      font-size: .95rem;
+    }
+
+    /* PRICING CARD */
+    .price-card {
+      background: var(--surf);
+      border: 1.5px solid var(--yellow);
+      padding: 32px 28px;
+      max-width: 420px;
+    }
+    .price-card-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .58rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 12px;
+    }
+    .price-main {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .price-note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .62rem;
+      color: var(--softer);
+      margin-top: 5px;
+      margin-bottom: 24px;
+    }
+    .price-includes {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .price-includes li {
+      font-size: .88rem;
+      color: var(--soft);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .price-includes li:last-child { border-bottom: none; }
+    .price-includes li > span { color: var(--yellow); flex-shrink: 0; margin-top: 1px; }
+    .price-includes li strong { color: var(--paper); }
+    .price-refund {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .62rem;
+      color: var(--softer);
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+
+    /* ACCESS CHAIN */
+    .access-chain {
+      display: flex;
+      align-items: center;
+      margin: 28px 0 8px;
+      background: var(--surf);
+      padding: 18px 16px;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .chain-node {
+      flex: 1;
+      min-width: 90px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      text-align: center;
+    }
+    .chain-node--lit { border-color: rgba(252,177,33,.4); }
+    .chain-node-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .55rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--softer);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .chain-node-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .chain-arrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .75rem;
+      color: var(--yellow);
+      padding: 0 6px;
+      flex-shrink: 0;
+    }
+    .chain-caption {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .62rem;
+      color: var(--softer);
+    }
+
+    /* FOR WHO */
+    .for-list {
+      list-style: none;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .for-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--surf);
+      padding: 20px;
+    }
+    .for-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .58rem;
+      color: var(--yellow);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .for-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .84rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .for-desc {
+      font-size: .85rem;
+      color: var(--soft);
+      line-height: 1.6;
+    }
+    .not-for {
+      border: 1px solid var(--line);
+      padding: 16px 20px;
+      margin-top: 14px;
+    }
+    .not-for-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .58rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--softer);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .not-for p { font-size: .86rem; color: var(--soft); }
+
+    /* FOUNDER */
+    .founder-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .founder-title {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .62rem;
+      color: var(--yellow);
+      letter-spacing: .06em;
+      margin-bottom: 14px;
+    }
+    .founder-body {
+      font-size: .9rem;
+      color: var(--soft);
+      line-height: 1.75;
+      max-width: 540px;
+    }
+    .founder-creds {
+      list-style: none;
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+    }
+    .founder-creds li {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .65rem;
+      color: var(--softer);
+      display: flex;
+      gap: 6px;
+    }
+    .founder-creds li::before { content: "→"; color: var(--yellow); }
+
+    /* FAQ */
+    .faq-list { list-style: none; margin-top: 24px; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .86rem;
+      font-weight: 700;
+      color: var(--white);
+      padding: 17px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
+    }
+    .faq-q::after {
+      content: "+";
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1rem;
+      color: var(--yellow);
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-q::after { content: "−"; }
+    .faq-a {
+      font-size: .88rem;
+      color: var(--soft);
+      line-height: 1.75;
+      padding-bottom: 17px;
+      display: none;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* FINAL CTA */
+    .final-cta {
+      padding: 72px 0 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .final-cta h2 {
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .final-cta p {
+      font-size: .95rem;
+      color: var(--soft);
+      margin-bottom: 12px;
+    }
+    .final-price {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--yellow);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .final-price-note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .6rem;
+      color: var(--softer);
+      margin-bottom: 24px;
+    }
+    .cross-sell {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      font-size: .86rem;
+      color: var(--softer);
+    }
+    .cross-sell a { color: var(--yellow); text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      background: var(--surf);
+      padding: 28px 20px;
+    }
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .footer-brand {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .6rem;
+      color: var(--softer);
+      letter-spacing: .08em;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .footer-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .58rem;
+      color: var(--softer);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--soft); }
+    .legal-note {
+      max-width: 720px;
+      margin: 14px auto 0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .56rem;
+      color: rgba(250,247,242,.18);
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    /* MOBILE STICKY BAR */
+    .sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      background: var(--surf);
+      border-top: 1px solid var(--line);
+      padding: 12px 16px;
+    }
+    .sticky-bar .btn { width: 100%; justify-content: center; }
+
+    /* PROBLEM QUESTIONS */
+    .problem-questions {
+      list-style: none;
+      margin: 4px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .problem-questions li {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--paper);
+      padding-left: 16px;
+      position: relative;
+    }
+    .problem-questions li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: var(--yellow);
+    }
+
+    /* PRINCIPLE VISUAL */
+    .principle-visual {
+      display: flex;
+      align-items: stretch;
+      margin: 28px 0 8px;
+      background: var(--surf);
+      padding: 18px 16px;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .principle-node {
+      flex: 1;
+      min-width: 80px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .principle-node--lit { border-color: rgba(252,177,33,.4); }
+    .principle-node-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .52rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--softer);
+      display: block;
+      margin-bottom: 5px;
+    }
+    .principle-node-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .78rem;
+      font-weight: 800;
+      color: var(--yellow);
+      letter-spacing: .04em;
+    }
+    .principle-arrow {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .75rem;
+      color: var(--yellow);
+      padding: 0 8px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    /* CALLOUT */
+    .callout {
+      background: rgba(252,177,33,.06);
+      border-left: 3px solid var(--yellow);
+      padding: 18px 22px;
+      margin: 4px 0 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--paper);
+      line-height: 1.5;
+      max-width: 540px;
+    }
+
+    /* DIY LIST */
+    .diy-list {
+      list-style: none;
+      margin: 4px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      max-width: 400px;
+    }
+    .diy-list li {
+      font-size: .9rem;
+      color: var(--soft);
+      padding-left: 18px;
+      position: relative;
+    }
+    .diy-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--softer);
+    }
+
+    /* CHECKLIST */
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .checklist li {
+      font-size: .88rem;
+      color: var(--soft);
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      line-height: 1.6;
+    }
+    .checklist li span { color: var(--yellow); flex-shrink: 0; font-family: 'IBM Plex Mono', monospace; font-size: .75rem; }
+    .checklist--negative li span { color: var(--softer); }
+
+    /* PREVIEW PLACEHOLDER */
+    .preview-card {
+      background: var(--surf);
+      border: 1px dashed rgba(252,177,33,.22);
+      padding: 40px 28px;
+      text-align: center;
+      margin-top: 24px;
+    }
+    .preview-card-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: .56rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--softer);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .preview-card-text {
+      font-size: .84rem;
+      color: var(--softer);
+      font-style: italic;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .top-bar-note { display: none; }
+      .access-chain { flex-direction: column; align-items: stretch; }
+      .chain-arrow { align-self: center; transform: rotate(90deg); }
+      .principle-visual { flex-direction: column; align-items: stretch; }
+      .principle-arrow { transform: rotate(90deg); align-self: center; }
+      .sticky-bar { display: block; }
+    }
+  </style>
+
+  <!-- Meta Pixel — replace PIXEL_ID_PLACEHOLDER with your Pixel ID -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '274335162095786');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {
+    content_name: 'Access & Control Blueprint',
+    content_ids: ['access-control'],
+    content_type: 'product',
+    currency: 'INR',
+    value: 299
+  });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=274335162095786&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+<!-- 1. TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <span class="top-bar-brand">The Spiral Squad</span>
+    <span class="top-bar-sep">·</span>
+    <span class="top-bar-name">Access &amp; Control Blueprint</span>
+    <span class="top-bar-sep">·</span>
+    <span class="top-bar-price mono">₹299</span>
+    <span class="top-bar-note mono">One-time · Not a subscription</span>
+  </div>
+  <a href="https://pages.razorpay.com/accesscontrol" class="btn btn--sm" id="cta-topbar">
+    Get Access &amp; Control
+  </a>
+</div>
+
+<!-- 2. HERO -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Access &amp; Control Blueprint</p>
+    <h1>You connected AI to Meta.<br><em>But what did you actually give it access to?</em></h1>
+    <p class="hero-sub">
+      A practical, screenshot-by-screenshot guide to setting up controlled AI access to Meta —
+      without figuring the whole thing out yourself.
+    </p>
+    <a href="https://pages.razorpay.com/accesscontrol" class="btn" id="cta-hero">
+      Get Access &amp; Control — ₹299
+      <span class="btn-sub">Instant digital access · ~30 min setup</span>
+    </a>
+    <div class="hero-meta">
+      <span class="hero-badge mono">₹299 · One-time</span>
+      <span class="hero-badge mono">·</span>
+      <span class="hero-badge mono">Not a subscription</span>
+      <span class="hero-badge mono">·</span>
+      <span class="hero-badge mono">~30 min setup</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PROBLEM -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">The setup nobody talks about</span>
+    <h2>The part nobody talks about.</h2>
+    <p class="section-body">Everyone is talking about connecting AI to Meta. Very few people talk about what happens after you connect it.</p>
+    <ul class="problem-questions">
+      <li>What can it see?</li>
+      <li>What can it change?</li>
+      <li>What does it actually have access to?</li>
+      <li>And how do you make sure you're giving it only what it needs?</li>
+    </ul>
+    <p class="section-body">That's what this guide is for.</p>
+  </div>
+</section>
+
+<!-- 4. CORE IDEA -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">The principle</span>
+    <h2>AI doesn't need the keys to everything.</h2>
+    <p class="section-body">
+      The goal isn't to give AI as much access as possible.<br>
+      The goal is to give it the access it actually needs — and understand exactly what you've given it.
+    </p>
+
+    <div class="principle-visual">
+      <div class="principle-node principle-node--lit">
+        <span class="principle-node-label">What you set up</span>
+        <span class="principle-node-name">Access</span>
+      </div>
+      <span class="principle-arrow">→</span>
+      <div class="principle-node principle-node--lit">
+        <span class="principle-node-label">What you define</span>
+        <span class="principle-node-name">Permission</span>
+      </div>
+      <span class="principle-arrow">→</span>
+      <div class="principle-node principle-node--lit">
+        <span class="principle-node-label">What you keep</span>
+        <span class="principle-node-name">Control</span>
+      </div>
+    </div>
+    <p class="chain-caption">Set up correctly once. Know exactly what's accessible. Then automate with confidence.</p>
+  </div>
+</section>
+
+<!-- 5. WHAT'S INSIDE -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">What you get</span>
+    <h2>What's inside.</h2>
+    <div class="price-card">
+      <p class="price-card-label mono">Access &amp; Control Blueprint</p>
+      <div class="price-main mono">₹299</div>
+      <p class="price-note mono">One-time payment · Not a subscription</p>
+      <ul class="price-includes">
+        <li><span>📕</span><div><strong>Access &amp; Control Blueprint</strong> — A practical guide covering the complete setup.</div></li>
+        <li><span>📸</span><div><strong>Screenshots for every step</strong> — Follow the actual interface instead of guessing where to click.</div></li>
+        <li><span>✅</span><div><strong>Final access checklist</strong> — Confirm everything is configured correctly before you move forward.</div></li>
+        <li><span>🧩</span><div><strong>Copy/paste test prompts</strong> — Simple prompts to verify the connection works.</div></li>
+        <li><span>🔧</span><div><strong>Troubleshooting section</strong> — Common problems and what to check when something doesn't work.</div></li>
+        <li><span>🔄</span><div><strong>Updates</strong> — The guide is updated when the setup materially changes.</div></li>
+        <li><span>🔐</span><div><strong>Private reader</strong> — Access the product through the private authenticated reader.</div></li>
+      </ul>
+      <a href="https://pages.razorpay.com/accesscontrol" class="btn" id="cta-pricing">
+        Get Access &amp; Control — ₹299
+        <span class="btn-sub">Instant digital access · ~30 min setup</span>
+      </a>
+      <p class="price-refund mono">Digital product. Access is delivered instantly on payment. No refunds.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. WHY PAY ₹299 -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">The honest answer</span>
+    <h2>You can figure this out yourself.</h2>
+    <p class="section-body">Of course you can.</p>
+    <ul class="diy-list">
+      <li>Spend the time researching it.</li>
+      <li>Watch different tutorials.</li>
+      <li>Open ten different tabs.</li>
+      <li>Figure out which steps still work.</li>
+      <li>Try something.</li>
+      <li>Break something.</li>
+      <li>Try again.</li>
+    </ul>
+    <p class="section-body">Or…</p>
+    <div class="callout">Spend ₹299 and start with the setup already documented.</div>
+    <p class="section-body">That's what you're paying for.</p>
+    <p class="section-body" style="font-size:.85rem;color:var(--softer);margin-top:-12px;">Built from research and weeks of testing. Condensed into a 30-minute plug-and-play setup.</p>
+  </div>
+</section>
+
+<!-- 7. WHO IT'S FOR -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Is this for you?</span>
+    <h2>This is for you if…</h2>
+    <ul class="checklist" style="margin-top:16px;">
+      <li><span>→</span> You're experimenting with AI + Meta Ads.</li>
+      <li><span>→</span> You want to connect AI to your advertising setup.</li>
+      <li><span>→</span> You don't want to blindly give AI access to things.</li>
+      <li><span>→</span> You want the setup documented step-by-step.</li>
+      <li><span>→</span> You'd rather follow a tested setup than piece it together yourself.</li>
+    </ul>
+    <div class="not-for">
+      <span class="not-for-label mono">This is not for you if…</span>
+      <ul class="checklist checklist--negative">
+        <li><span>—</span> You're looking for a Meta Ads course.</li>
+        <li><span>—</span> You want someone to run your ads for you.</li>
+        <li><span>—</span> You're looking for a magic AI button.</li>
+        <li><span>—</span> You don't want to do the initial setup.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 8. FOUNDER -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Who built this</span>
+    <p class="founder-name">Raj</p>
+    <p class="founder-title mono">Performance Marketer · The Spiral Squad</p>
+    <p class="founder-body">
+      I run Meta ads for brands every day. Not as a course creator — I manage real campaigns for
+      real budgets. When I wanted AI running on my ad accounts, I needed a setup that was clear
+      and controlled, not one that handed a model access to everything it could reach.
+      This Blueprint is what I built for myself. It's been running on my setup for months.
+    </p>
+    <ul class="founder-creds">
+      <li>7 years running Meta Ads</li>
+      <li>200+ brands across restaurants, real estate, e-commerce, fashion, luxury, startups</li>
+      <li>~$1M in ad spend managed</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 10. FAQ -->
+<section class="section">
+  <div class="container">
+    <span class="section-label">Questions</span>
+    <h2>What people ask before buying.</h2>
+    <ul class="faq-list">
+      <li class="faq-item">
+        <div class="faq-q">Do I need to be technical?</div>
+        <div class="faq-a">No. The guide is designed to be followed step-by-step, with screenshots and clear instructions. If you can follow a Google Doc, you can do this setup.</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Is this a Meta Ads course?</div>
+        <div class="faq-a">No. This is specifically about the access and control setup when connecting AI to Meta. It doesn't teach media buying, campaign strategy, or ad optimisation.</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Does this guarantee better ad performance?</div>
+        <div class="faq-a">No. It doesn't guarantee performance. It helps you get the access layer set up properly so you can work with AI more effectively. What you do with that access is up to you.</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Is this a one-click setup?</div>
+        <div class="faq-a">No. There is an initial setup. That's the point — do it properly once instead of repeatedly figuring it out every time you want to use AI with your ads.</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">Is there anything I need to save or store after setup?</div>
+        <div class="faq-a">Yes — the guide walks you through what to save, where it goes, and how to keep it secure. The exact approach depends on your setup, but the guide covers what matters and what to avoid.</div>
+      </li>
+      <li class="faq-item">
+        <div class="faq-q">What do I do after the access is set up?</div>
+        <div class="faq-a">The access setup is the foundation. Once it's done, any AI agent tool — Claude, ChatGPT, others — can connect to your Meta Ads. If you want the full operating process for running ad-ops with AI, that's what <a href="/products/workflow/" style="color:var(--yellow);">The Workflow</a> covers.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 11. FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <span class="section-label">Get it</span>
+    <h2>Ready to stop figuring out the access part?</h2>
+    <p>Set it up once.</p>
+    <p>Understand what you've given AI access to.</p>
+    <p>Then move on to the actual work.</p>
+    <div class="final-price mono" style="margin-top:24px;">₹299</div>
+    <p class="final-price-note mono">Digital product · Private authenticated access · One-time payment</p>
+    <a href="https://pages.razorpay.com/accesscontrol" class="btn" id="cta-final">
+      Get Access &amp; Control — ₹299
+      <span class="btn-sub">Instant digital access · ~30 min setup</span>
+    </a>
+    <div class="cross-sell">
+      Access set up? <a href="/products/workflow/">The Workflow is the next step →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand mono">The Spiral Squad</span>
+    <ul class="footer-links">
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <li><a href="/terms-of-service/">Terms of Service</a></li>
+      <li><a href="/data-deletion/">Data Deletion</a></li>
+    </ul>
+  </div>
+  <p class="legal-note">Meta is a trademark of Meta Platforms, Inc. The Spiral Squad is not affiliated with or endorsed by Meta.</p>
+</footer>
+
+<!-- MOBILE STICKY BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <a href="https://pages.razorpay.com/accesscontrol" class="btn" id="cta-sticky">
+    Get Access &amp; Control — ₹299
+  </a>
+</div>
+
+<script>
+(function() {
+  /* UTM pass-through */
+  var BASE = 'https://pages.razorpay.com/accesscontrol';
+  var p = new URLSearchParams(window.location.search);
+  var out = new URLSearchParams();
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
+    if (p.get(k)) out.set(k, p.get(k));
+  });
+  var url = BASE + (out.toString() ? '?' + out.toString() : '');
+  ['cta-topbar','cta-hero','cta-pricing','cta-final','cta-sticky'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.href = url;
+  });
+
+  /* InitiateCheckout on CTA click */
+  document.querySelectorAll('a[id^="cta-"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Access & Control Blueprint',
+          content_ids: ['access-control'],
+          currency: 'INR',
+          value: 299,
+          num_items: 1
+        });
+      }
+    });
+  });
+
+  /* Sticky bar: show after hero leaves viewport */
+  var bar  = document.getElementById('stickyBar');
+  var hero = document.querySelector('.hero');
+  if (bar && hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries) {
+      bar.style.display = entries[0].isIntersecting ? 'none' : 'block';
+    }, { threshold: 0 }).observe(hero);
+  }
+
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      q.closest('.faq-item').classList.toggle('open');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
