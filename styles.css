@@ -149,6 +149,18 @@ a    { color: inherit; }
 }
 .btn-ghost:hover { color: var(--yellow); border-color: var(--yellow); }
 
+.btn-outline {
+  display: inline-flex; align-items: center;
+  color: var(--charcoal); text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  padding: 15px 26px 15px 30px;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 100%, 18px 100%);
+  border: 2px solid var(--charcoal);
+  transition: background .15s, color .15s;
+}
+.btn-outline:hover { background: var(--charcoal); color: var(--white); }
+
 /* hero right: manifest docket panel */
 .hero-right {
   position: relative; background: #1B1718;
