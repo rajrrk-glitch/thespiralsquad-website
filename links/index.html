@@ -1,0 +1,241 @@
+<title>The Spiral Squad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:     #1a1718;
+    --surf:   #231F20;
+    --yellow: #FCB121;
+    --white:  #FFFFFF;
+    --paper:  #FAF7F2;
+    --soft:   rgba(250,247,242,.62);
+    --softer: rgba(250,247,242,.32);
+    --line:   rgba(250,247,242,.10);
+  }
+
+  html, body {
+    min-height: 100%;
+    background: var(--bg);
+    color: var(--paper);
+    font-family: 'Fraunces', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 20px;
+    padding-block: 48px 40px;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* ── PROFILE ── */
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .profile-mark {
+    width: 60px;
+    height: 60px;
+    background: var(--yellow);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: .78rem;
+    letter-spacing: .1em;
+    color: var(--bg);
+    flex-shrink: 0;
+  }
+
+  .profile-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .profile-bio {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: .92rem;
+    color: var(--soft);
+    line-height: 1.5;
+    max-width: 260px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .56rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--softer);
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 2px;
+  }
+
+  /* ── LINK BUTTONS ── */
+  .link-btn {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    padding: 17px 22px;
+    transition: opacity .14s;
+    outline-offset: 3px;
+  }
+  .link-btn:hover  { opacity: .85; }
+  .link-btn:focus-visible { outline: 2px solid var(--yellow); }
+
+  /* Product — yellow parallelogram */
+  .link-btn--product {
+    background: var(--yellow);
+    color: var(--bg);
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 100%, 14px 100%);
+  }
+
+  /* Secondary — outlined */
+  .link-btn--secondary {
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid rgba(250,247,242,.15);
+  }
+  .link-btn--secondary:hover { border-color: rgba(250,247,242,.35); opacity: 1; }
+
+  .link-btn-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .link-btn-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: .86rem;
+    letter-spacing: .02em;
+    line-height: 1.2;
+  }
+
+  .link-btn-arrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: .8rem;
+    flex-shrink: 0;
+    opacity: .55;
+  }
+
+  .link-btn-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .58rem;
+    letter-spacing: .04em;
+    margin-top: 5px;
+    line-height: 1.4;
+  }
+
+  .link-btn--product .link-btn-sub { color: rgba(26,23,24,.6); }
+  .link-btn--secondary .link-btn-sub { color: var(--softer); }
+
+  /* Price tag inside the sub line */
+  .price-tag {
+    font-weight: 500;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--line);
+    margin: 4px 0;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 36px;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .54rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,.2);
+  }
+</style>
+
+<div class="page">
+
+  <!-- PROFILE -->
+  <div class="profile">
+    <div class="profile-mark">TSS</div>
+    <div class="profile-name">The Spiral Squad</div>
+    <p class="profile-bio">Performance marketing, met with AI.</p>
+  </div>
+
+  <!-- PRODUCTS -->
+  <span class="section-label">Products</span>
+
+  <a href="https://pages.razorpay.com/accesscontrol" class="link-btn link-btn--product">
+    <div class="link-btn-row">
+      <span class="link-btn-name">Access &amp; Control Blueprint</span>
+      <span class="link-btn-arrow">→</span>
+    </div>
+    <span class="link-btn-sub"><span class="price-tag">₹299</span> · Set up controlled AI access to Meta Ads</span>
+  </a>
+
+  <a href="https://rzp.io/rzp/metaworkflow" class="link-btn link-btn--product">
+    <div class="link-btn-row">
+      <span class="link-btn-name">The Workflow</span>
+      <span class="link-btn-arrow">→</span>
+    </div>
+    <span class="link-btn-sub"><span class="price-tag">₹799</span> · Operating system for AI + Meta Ads</span>
+  </a>
+
+  <!-- OTHER LINKS -->
+  <div class="divider"></div>
+
+  <a href="https://www.instagram.com/rajrkadam" class="link-btn link-btn--secondary" target="_blank" rel="noopener">
+    <div class="link-btn-row">
+      <span class="link-btn-name">Instagram</span>
+      <span class="link-btn-arrow">→</span>
+    </div>
+    <span class="link-btn-sub">@rajrkadam</span>
+  </a>
+
+  <a href="https://thespiralsquad.com" class="link-btn link-btn--secondary">
+    <div class="link-btn-row">
+      <span class="link-btn-name">thespiralsquad.com</span>
+      <span class="link-btn-arrow">→</span>
+    </div>
+    <span class="link-btn-sub">Website</span>
+  </a>
+
+  <a href="https://thespiralsquad.com/#contact" class="link-btn link-btn--secondary">
+    <div class="link-btn-row">
+      <span class="link-btn-name">Work with us</span>
+      <span class="link-btn-arrow">→</span>
+    </div>
+    <span class="link-btn-sub">Custom setup · Managed campaigns</span>
+  </a>
+
+  <div class="footer">The Spiral Squad · 2026</div>
+
+</div>
