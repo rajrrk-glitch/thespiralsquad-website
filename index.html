@@ -30,6 +30,17 @@
   <!-- Set 'js' class synchronously before paint so reveal CSS starts hidden
        only when JS is confirmed available — content never stuck invisible. -->
   <script>document.documentElement.classList.add('js');</script>
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','274335162095786');fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=274335162095786&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
 </head>
 <body>
 
@@ -291,6 +302,16 @@
     }
     track.innerHTML = html;
   })();
+
+  // Pixel: ViewContent on load
+  if (typeof fbq !== 'undefined') fbq('track', 'ViewContent', { content_name: 'Home', content_category: 'homepage' });
+
+  // Pixel: Lead on "Get in touch" clicks
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Get in Touch', content_category: 'contact' });
+    });
+  });
 
   (function() {
     // ── Scroll reveal ──────────────────────────────────────────

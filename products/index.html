@@ -160,7 +160,7 @@
           </ul>
         </div>
         <div class="prod-cta-group">
-          <a href="https://pages.razorpay.com/accesscontrol" class="btn prod-cta">Get the Blueprint</a>
+          <a href="https://pages.razorpay.com/accesscontrol" class="btn prod-cta" data-pixel-checkout="ACCESS_CONTROL" data-pixel-value="299" data-pixel-name="Access &amp; Control Blueprint">Get the Blueprint</a>
           <a href="/products/access-control/" class="btn prod-cta">Learn More</a>
         </div>
         <p class="prod-cross">Ready to build the workflow after access is sorted? <a href="#workflow">The Workflow →</a></p>
@@ -185,7 +185,7 @@
           </ul>
         </div>
         <div class="prod-cta-group">
-          <a href="https://rzp.io/rzp/metaworkflow" class="btn prod-cta">Get the Workflow</a>
+          <a href="https://rzp.io/rzp/metaworkflow" class="btn prod-cta" data-pixel-checkout="THE_WORKFLOW" data-pixel-value="799" data-pixel-name="The Workflow">Get the Workflow</a>
           <a href="/products/meta-agent-workflow/" class="btn prod-cta">Learn More</a>
         </div>
         <p class="prod-cross">Need to set up controlled Meta access first? <a href="#products">Access &amp; Control →</a></p>
@@ -324,7 +324,7 @@
           <span class="dfy-price mono">₹12,000</span>
           <span class="dfy-period mono">one-time</span>
         </div>
-        <a href="mailto:raj@thespiralsquad.com" class="btn" style="margin-top:28px; display:inline-flex;">Request a Custom Setup</a>
+        <a href="mailto:raj@thespiralsquad.com" class="btn pixel-custom-lead" style="margin-top:28px; display:inline-flex;">Request a Custom Setup</a>
       </div>
       <div>
         <span class="section-label" style="color:rgba(252,177,33,.6);">How it works</span>
@@ -422,7 +422,7 @@
       <p>Pick a guide or a system — or tell me what you're trying to build and I'll put the setup together for you.</p>
       <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:center;">
         <a href="#products" class="btn">See all products</a>
-        <a href="mailto:raj@thespiralsquad.com" class="btn-ghost">Request a Custom Setup →</a>
+        <a href="mailto:raj@thespiralsquad.com" class="btn-ghost pixel-custom-lead">Request a Custom Setup →</a>
       </div>
     </div>
   </div>
@@ -490,6 +490,26 @@
     }
     track.innerHTML = html;
   })();
+
+  // Pixel: InitiateCheckout on buy buttons
+  document.querySelectorAll('[data-pixel-checkout]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout', {
+        content_ids: [btn.getAttribute('data-pixel-checkout')],
+        content_name: btn.getAttribute('data-pixel-name'),
+        value: parseFloat(btn.getAttribute('data-pixel-value')),
+        currency: 'INR',
+        num_items: 1,
+      });
+    });
+  });
+
+  // Pixel: Lead on Custom Setup mailto clicks
+  document.querySelectorAll('.pixel-custom-lead').forEach(function(a) {
+    a.addEventListener('click', function() {
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Custom Setup', content_category: 'service' });
+    });
+  });
 
   // Pixel: ViewContent when Chrome Extensions section enters viewport
   (function() {
