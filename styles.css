@@ -569,6 +569,9 @@ footer { background: var(--charcoal); border-top: 2px solid var(--yellow); paddi
 .card-grid--3 .card:nth-child(2) { margin-top: 34px; }
 .card-grid--3 .card:nth-child(3) { margin-top: 0; }
 
+/* ---------- 2-column card grid variant ---------- */
+.card-grid--2 { grid-template-columns: repeat(2,1fr); max-width: 860px; }
+
 /* ---------- checks grid (8 cells, 4 cols) ---------- */
 .checks-grid {
   display: grid; grid-template-columns: repeat(4,1fr);

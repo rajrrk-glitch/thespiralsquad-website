@@ -28,6 +28,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../styles.css">
   <script>document.documentElement.classList.add('js');</script>
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','274335162095786');fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=274335162095786&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
 </head>
 <body>
 
@@ -97,6 +108,13 @@
             <span class="docket-cat-desc">Real campaigns, results &amp; breakdowns</span>
           </span>
           <span class="docket-pill">Soon</span>
+        </li>
+        <li>
+          <span class="code mono">04</span>
+          <a href="#chrome-extensions" class="docket-cat">
+            <span class="name">Chrome Extensions</span>
+            <span class="docket-cat-desc">Free tools built for Meta Ads and web work</span>
+          </a>
         </li>
       </ul>
     </div>
@@ -193,6 +211,59 @@
         <a href="#" class="btn prod-cta">Get the Starter Pack</a>
         <p class="prod-cross">Want the system built for you instead? <a href="#custom-setup">Custom Setup →</a></p>
       </div>
+    </div>
+
+    <!-- CHROME EXTENSIONS CATEGORY ───── -->
+    <div class="prod-category-head" id="chrome-extensions">
+      <span class="prod-category-label mono">Chrome Extensions</span>
+      <p class="prod-category-desc">Free tools built from real work — available on the Chrome Web Store.</p>
+    </div>
+    <div class="card-grid card-grid--2 reveal-group" id="ext-section">
+
+      <!-- Chexlist -->
+      <div class="prod-card reveal">
+        <span class="prod-type">Free · Chrome Extension</span>
+        <span class="tag mono">05</span>
+        <h3><a href="https://chromewebstore.google.com/detail/chexlist/abknpdoeeenjdjmckpebljbjdaobbfeg" class="prod-title-link" target="_blank" rel="noopener">Chexlist</a></h3>
+        <div class="prod-price mono">Free</div>
+        <div class="prod-desc">
+          <p class="prod-desc-lead">Turn any web page into a reusable, element-aware checklist. Built for Meta Ads Manager — works on any site.</p>
+          <ul class="prod-desc-list">
+            <li>🔲 Click elements on the page to add them</li>
+            <li>▶️ Side panel guides you through each step</li>
+            <li>🔍 Smart selectors survive page updates</li>
+            <li>🟢 Reliability grading for each saved element</li>
+            <li>💾 Saved locally — no account needed</li>
+            <li>⚙️ Works on Meta Ads Manager and any https page</li>
+          </ul>
+        </div>
+        <div class="prod-cta-group">
+          <a href="https://chromewebstore.google.com/detail/chexlist/abknpdoeeenjdjmckpebljbjdaobbfeg" class="btn prod-cta ext-cta" target="_blank" rel="noopener" data-ext="Chexlist">Add to Chrome</a>
+        </div>
+      </div>
+
+      <!-- Snap Pro -->
+      <div class="prod-card reveal">
+        <span class="prod-type">Free · Chrome Extension</span>
+        <span class="tag mono">06</span>
+        <h3><a href="https://chromewebstore.google.com/detail/snap-pro/lpceocoghhmlgchcfpimjdmpnokhdhad" class="prod-title-link" target="_blank" rel="noopener">Snap Pro</a></h3>
+        <div class="prod-price mono">Free</div>
+        <div class="prod-desc">
+          <p class="prod-desc-lead">Select and capture elements from authenticated web pages. Works where standard screenshot tools can't reach.</p>
+          <ul class="prod-desc-list">
+            <li>🖱️ Hover to preview, click to select any element</li>
+            <li>🔐 Works on authenticated and restricted pages</li>
+            <li>📐 Precise element targeting with visual highlight</li>
+            <li>🗂️ Captures element metadata and selector path</li>
+            <li>⚡ Lightweight — no backend, no account</li>
+            <li>🛡️ Manifest V3 — current Chrome standards</li>
+          </ul>
+        </div>
+        <div class="prod-cta-group">
+          <a href="https://chromewebstore.google.com/detail/snap-pro/lpceocoghhmlgchcfpimjdmpnokhdhad" class="btn prod-cta ext-cta" target="_blank" rel="noopener" data-ext="Snap Pro">Add to Chrome</a>
+        </div>
+      </div>
+
     </div>
 
     <!-- DONE FOR YOU ───────── -->
@@ -419,6 +490,28 @@
     }
     track.innerHTML = html;
   })();
+
+  // Pixel: ViewContent when Chrome Extensions section enters viewport
+  (function() {
+    var section = document.getElementById('ext-section');
+    if (!section) return;
+    var fired = false;
+    var io = new IntersectionObserver(function(entries) {
+      if (!fired && entries[0].isIntersecting) {
+        fired = true;
+        if (typeof fbq !== 'undefined') fbq('track', 'ViewContent', { content_name: 'Chrome Extensions', content_category: 'extensions' });
+        io.disconnect();
+      }
+    }, { threshold: 0.2 });
+    io.observe(section);
+  })();
+
+  // Pixel: Lead on "Add to Chrome" click
+  document.querySelectorAll('.ext-cta').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: btn.getAttribute('data-ext'), content_category: 'chrome_extension' });
+    });
+  });
 
   (function() {
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
