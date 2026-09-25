@@ -79,15 +79,9 @@
     <div class="optin-grid">
       <div>
         <span class="optin-label">Get the Blueprint</span>
-        <!-- LEAD FORM — wire up LEAD_FORM_TOOL (e.g. MailerLite / ConvertKit / Tally)
-             Set action="" to your form endpoint. On success, redirect to /blueprint/thanks/.
-             When META_PIXEL_ID is set, fire: fbq('track','Lead') on submit. -->
-        <form class="optin-form" action="#" method="post" id="blueprint-form" novalidate>
-          <input type="text" name="first_name" placeholder="First name" required autocomplete="given-name">
-          <input type="email" name="email" placeholder="Work email" required autocomplete="email">
-          <button type="submit" class="btn" style="align-self:flex-start;">Send me the Blueprint</button>
-          <p class="optin-consent">We'll email you the guide and occasional updates about this product. Unsubscribe anytime.</p>
-        </form>
+        <p class="how-body" style="margin-bottom:20px;">Email to request the Blueprint and Media Plan Tracker template. Reply comes within 24 hours.</p>
+        <a href="mailto:raj@thespiralsquad.com?subject=Blueprint%20request&body=Hi%20Raj%2C%20I%27d%20like%20the%20Safe%20AI%20Ad-Ops%20Blueprint." class="btn" onclick="if(typeof fbq==='function'){fbq('track','Lead');}">Email to get the Blueprint</a>
+        <p class="optin-consent" style="margin-top:14px;">raj@thespiralsquad.com · reply within 24 hours</p>
       </div>
       <div>
         <span class="optin-label">What's inside</span>
@@ -135,13 +129,6 @@
     });
   })();
 
-  (function() {
-    var form = document.getElementById('blueprint-form');
-    if (!form) return;
-    form.addEventListener('submit', function() {
-      if (typeof fbq === 'function') { fbq('track', 'Lead'); }
-    });
-  })();
 </script>
 
 </body>
