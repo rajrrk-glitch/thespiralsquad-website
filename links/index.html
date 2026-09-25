@@ -204,7 +204,7 @@ fbq('init','274335162095786');fbq('track','PageView');
   <!-- PRODUCTS -->
   <span class="section-label">Products</span>
 
-  <a href="https://pages.razorpay.com/accesscontrol" class="link-btn link-btn--product">
+  <a href="https://pages.razorpay.com/accesscontrol" class="link-btn link-btn--product" data-product="instagram_access_control">
     <div class="link-btn-row">
       <span class="link-btn-name">Access &amp; Control Blueprint</span>
       <span class="link-btn-arrow">→</span>
@@ -212,7 +212,7 @@ fbq('init','274335162095786');fbq('track','PageView');
     <span class="link-btn-sub"><span class="price-tag">₹299</span> · Set up controlled AI access to Meta Ads</span>
   </a>
 
-  <a href="https://rzp.io/rzp/metaworkflow" class="link-btn link-btn--product">
+  <a href="https://rzp.io/rzp/metaworkflow" class="link-btn link-btn--product" data-product="instagram_workflow">
     <div class="link-btn-row">
       <span class="link-btn-name">The Workflow</span>
       <span class="link-btn-arrow">→</span>
@@ -242,7 +242,7 @@ fbq('init','274335162095786');fbq('track','PageView');
   <!-- OTHER LINKS -->
   <div class="divider"></div>
 
-  <a href="https://www.instagram.com/rajrkadam" class="link-btn link-btn--secondary" target="_blank" rel="noopener">
+  <a href="https://www.instagram.com/rajrkadam" class="link-btn link-btn--secondary" target="_blank" rel="noopener" data-link="instagram_follow">
     <div class="link-btn-row">
       <span class="link-btn-name">Instagram</span>
       <span class="link-btn-arrow">→</span>
@@ -250,7 +250,7 @@ fbq('init','274335162095786');fbq('track','PageView');
     <span class="link-btn-sub">@rajrkadam</span>
   </a>
 
-  <a href="https://thespiralsquad.com" class="link-btn link-btn--secondary">
+  <a href="https://thespiralsquad.com" class="link-btn link-btn--secondary" data-link="instagram_website">
     <div class="link-btn-row">
       <span class="link-btn-name">thespiralsquad.com</span>
       <span class="link-btn-arrow">→</span>
@@ -258,7 +258,7 @@ fbq('init','274335162095786');fbq('track','PageView');
     <span class="link-btn-sub">Website</span>
   </a>
 
-  <a href="https://thespiralsquad.com/products/#custom-setup" class="link-btn link-btn--secondary">
+  <a href="https://thespiralsquad.com/products/#custom-setup" class="link-btn link-btn--secondary" data-link="instagram_custom_setup">
     <div class="link-btn-row">
       <span class="link-btn-name">Work with us</span>
       <span class="link-btn-arrow">→</span>
@@ -271,20 +271,40 @@ fbq('init','274335162095786');fbq('track','PageView');
 </div>
 
 <script>
-  // InitiateCheckout on product clicks
-  document.querySelectorAll('.link-btn--product').forEach(function(a) {
+  // Custom events — all named with instagram_ prefix to identify bio-link traffic
+
+  // Product clicks → instagram_product_click
+  document.querySelectorAll('[data-product]').forEach(function(a) {
     a.addEventListener('click', function() {
       if (typeof fbq !== 'undefined') {
-        var name = a.querySelector('.link-btn-name').textContent.trim();
-        fbq('track', 'InitiateCheckout', { content_name: name, content_category: 'links-page' });
+        fbq('trackCustom', 'instagram_product_click', {
+          product: a.dataset.product,
+          content_name: a.querySelector('.link-btn-name').textContent.trim()
+        });
       }
     });
   });
-  // Lead on Chrome Extension clicks
+
+  // Chrome Extension clicks → instagram_extension_click
   document.querySelectorAll('[data-ext]').forEach(function(a) {
     a.addEventListener('click', function() {
       if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead', { content_name: a.dataset.ext, content_category: 'chrome-extension' });
+        fbq('trackCustom', 'instagram_extension_click', {
+          extension: a.dataset.ext,
+          content_name: a.querySelector('.link-btn-name').textContent.trim()
+        });
+      }
+    });
+  });
+
+  // Secondary link clicks → instagram_link_click
+  document.querySelectorAll('[data-link]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      if (typeof fbq !== 'undefined') {
+        fbq('trackCustom', 'instagram_link_click', {
+          link: a.dataset.link,
+          content_name: a.querySelector('.link-btn-name').textContent.trim()
+        });
       }
     });
   });
