@@ -1,3 +1,14 @@
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','274335162095786');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=274335162095786&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
 <title>The Spiral Squad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -209,6 +220,25 @@
     <span class="link-btn-sub"><span class="price-tag">₹799</span> · Operating system for AI + Meta Ads</span>
   </a>
 
+  <!-- CHROME EXTENSIONS -->
+  <span class="section-label">Chrome Extensions</span>
+
+  <a href="https://chromewebstore.google.com/detail/chexlist/abknpdoeeenjdjmckpebljbjdaobbfeg" class="link-btn link-btn--secondary" target="_blank" rel="noopener" data-ext="chexlist">
+    <div class="link-btn-row">
+      <span class="link-btn-name">Chexlist</span>
+      <span class="link-btn-arrow">→</span>
+    </div>
+    <span class="link-btn-sub">Checklists inside Meta Ads Manager · Free</span>
+  </a>
+
+  <a href="https://chromewebstore.google.com/detail/snap-pro/lpceocoghhmlgchcfpimjdmpnokhdhad" class="link-btn link-btn--secondary" target="_blank" rel="noopener" data-ext="snap-pro">
+    <div class="link-btn-row">
+      <span class="link-btn-name">Snap Pro</span>
+      <span class="link-btn-arrow">→</span>
+    </div>
+    <span class="link-btn-sub">Screenshot tool for Chrome · Free</span>
+  </a>
+
   <!-- OTHER LINKS -->
   <div class="divider"></div>
 
@@ -239,3 +269,23 @@
   <div class="footer">The Spiral Squad · 2026</div>
 
 </div>
+
+<script>
+  // InitiateCheckout on product clicks
+  document.querySelectorAll('.link-btn--product').forEach(function(a) {
+    a.addEventListener('click', function() {
+      if (typeof fbq !== 'undefined') {
+        var name = a.querySelector('.link-btn-name').textContent.trim();
+        fbq('track', 'InitiateCheckout', { content_name: name, content_category: 'links-page' });
+      }
+    });
+  });
+  // Lead on Chrome Extension clicks
+  document.querySelectorAll('[data-ext]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', { content_name: a.dataset.ext, content_category: 'chrome-extension' });
+      }
+    });
+  });
+</script>
