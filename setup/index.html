@@ -26,6 +26,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../styles.css">
   <script>document.documentElement.classList.add('js');</script>
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '274335162095786');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=274335162095786&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -44,6 +56,7 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="/products/">Products</a></li>
       <li><a href="/products/#custom-setup">Custom Setup</a></li>
+      <li><a href="../ad-ops/">Playbook</a></li>
       <li><a href="../privacy-policy/">Privacy Policy</a></li>
       <li><a href="../terms-of-service/">Terms</a></li>
       <li><a href="../data-deletion/">Data Deletion</a></li>
@@ -259,7 +272,9 @@
   })();
 
   function fireSchedule() {
-    /* When META_PIXEL_ID is set, fire: fbq('track','Schedule'); */
+    if (typeof fbq === 'function') {
+      fbq('track', 'Schedule');
+    }
   }
 </script>
 

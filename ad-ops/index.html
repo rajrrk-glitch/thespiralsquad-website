@@ -26,6 +26,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../styles.css">
   <script>document.documentElement.classList.add('js');</script>
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '274335162095786');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent', {
+    content_name: 'Agentic Ad-Ops Playbook',
+    content_ids: ['ad-ops-playbook'],
+    content_type: 'product',
+    currency: 'INR',
+    value: 1499
+  });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=274335162095786&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -231,10 +250,8 @@
       <div class="pricing-card">
         <p class="pricing-name">Agentic Ad-Ops Playbook + Starter Kit</p>
         <div class="price-row">
-          <span class="price-now" id="price-display">₹1,499</span>
-          <span class="price-was" id="price-was-display">₹2,499</span>
+          <span class="price-now">₹1,499</span>
         </div>
-        <p class="price-note" id="earlybird-note" data-ends="YYYY-MM-DD">Early-bird price until [DATE TBD]. Full price after.</p>
         <p class="price-usd">Outside India? <a href="#" id="cta-pricing-usd" onclick="fireCheckout('USD')" style="font-weight:700;">Get it for $39 →</a></p>
         <ul class="pricing-includes">
           <li>Playbook PDF (16 pages, architecture to troubleshooting)</li>
@@ -336,17 +353,6 @@
           <p>No. It uses Meta's public Marketing API.</p>
         </div>
       </li>
-      <li class="faq-item">
-        <button class="faq-btn" aria-expanded="false">
-          <span>Refunds?</span>
-          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M5 7.5l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <div class="faq-body" hidden>
-          <p>[Fill in your refund policy, or remove this question.]</p>
-        </div>
-      </li>
     </ul>
   </div>
 </section>
@@ -401,17 +407,6 @@
     });
   })();
 
-  /* ── Early-bird price swap ─────────────────────────── */
-  (function() {
-    var note = document.getElementById('earlybird-note');
-    if (!note) return;
-    var ends = note.dataset.ends;
-    if (ends && ends !== 'YYYY-MM-DD' && new Date() > new Date(ends)) {
-      document.getElementById('price-display').textContent = '₹2,499';
-      document.getElementById('price-was-display').style.display = 'none';
-      note.style.display = 'none';
-    }
-  })();
 
   /* ── FAQ accordion ─────────────────────────────────── */
   (function() {
@@ -442,9 +437,13 @@
     setTimeout(function() { items.forEach(function(el) { el.classList.add('in'); }); }, 1200);
   })();
 
-  /* ── Checkout click handler (placeholder for pixel / analytics) ── */
   function fireCheckout(currency) {
-    /* When META_PIXEL_ID is set, fire: fbq('track','InitiateCheckout',{value:...,currency:currency}); */
+    if (typeof fbq === 'function') {
+      fbq('track', 'InitiateCheckout', {
+        value: currency === 'INR' ? 1499 : 39,
+        currency: currency
+      });
+    }
   }
 </script>
 
